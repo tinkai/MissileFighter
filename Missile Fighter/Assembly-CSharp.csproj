@@ -62,7 +62,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Fighter.cs" />
     <Compile Include="Assets\Scripts\FighterController.cs" />
+    <Compile Include="Assets\Scripts\Missile.cs" />
+    <Compile Include="Assets\Scripts\MissilePods.cs" />
     <None Include="Assets\Asset Stores\StarSparrow\ReadMe.txt" />
+    <None Include="Assets\Asset Stores\AurynSky\Rockets Missiles and Bombs\READ ME.txt" />
     <None Include="Assets\Asset Stores\StarSparrow\Materials\Unified\UnifiedMaterials.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/jyamu/Desktop/Unity/MissileFighter/Missile Fighter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

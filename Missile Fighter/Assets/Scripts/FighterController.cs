@@ -14,6 +14,7 @@ public class FighterController : MonoBehaviour
         InputRoll();
         InputVertical();
         InputAccele();
+        InputShotMissile();
     }
 
     // 旋回に関する入力処理
@@ -43,6 +44,15 @@ public class FighterController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             fighter.Acceleration();
+        }
+    }
+
+    // ミサイルボタン処理
+    void InputShotMissile()
+    {
+        if (Input.GetKey(KeyCode.M))
+        {
+            fighter.MissilePods.ShotMissile();
         }
     }
 }

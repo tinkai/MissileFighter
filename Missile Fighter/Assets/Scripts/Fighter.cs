@@ -18,6 +18,12 @@ public class Fighter : MonoBehaviour
     [SerializeField] private float fallingForce = 1.0f;
     [SerializeField] private float rollingForce = 5.0f;
 
+    // ミサイルの発射口
+    [SerializeField] private MissilePods missilePods;
+    public MissilePods MissilePods
+    {
+        get { return missilePods; }
+    }
 
     void Start()
     {
