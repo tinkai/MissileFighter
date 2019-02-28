@@ -13,6 +13,7 @@ public class FighterController : MonoBehaviour
     {
         InputRoll();
         InputVertical();
+        InputAccele();
     }
 
     // 旋回に関する入力処理
@@ -33,6 +34,15 @@ public class FighterController : MonoBehaviour
         else
         {
             fighter.Rise(vertical);
+        }
+    }
+
+    // 加速ボタン処理
+    void InputAccele()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            fighter.Acceleration();
         }
     }
 }
