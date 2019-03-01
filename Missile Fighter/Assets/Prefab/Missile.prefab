@@ -44,7 +44,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -61,8 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54c35eecaff76f4ab7d46fd7e04945f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inductionRate: 0.3
-  shotForce: 10
+  speed: 400
+  inductionRate: 0.1
+  shotForce: 3
+  guidDelayTime: 1
 --- !u!1001 &3427526270216530868
 PrefabInstance:
   m_ObjectHideFlags: 0
