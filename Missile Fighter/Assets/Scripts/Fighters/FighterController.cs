@@ -17,6 +17,7 @@ namespace Fighters
             InputPitch();
             InputYaw();
             InputAccele();
+            InputBrake();
             InputShotMissile();
         }
 
@@ -26,6 +27,15 @@ namespace Fighters
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 fighter.Acceleration();
+            }
+        }
+
+        // ブレーキボタン処理
+        void InputBrake()
+        {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                fighter.Brake();
             }
         }
 

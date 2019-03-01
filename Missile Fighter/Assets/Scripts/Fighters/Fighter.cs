@@ -12,7 +12,10 @@ namespace Fighters
         // 最高スピード
         [SerializeField] private float maxSpeed = 300.0f;
 
-        // 前方への加速力
+        // 通常速度を保つための加速力
+        [SerializeField] private float normalSpeedAcceleration = 150.0f;
+
+        // アクセルしたときの加速力
         [SerializeField] private float acceleration = 200.0f;
 
         // 旋回・上昇・下降・ヨーに対する力
@@ -39,11 +42,28 @@ namespace Fighters
             //Debug.Log(fighterbody.velocity.magnitude);
         }
 
+        void FixedUpdate()
+        {
+            NormalSpeed();
+        }
+
+        // 機体の通常速度
+        public void NormalSpeed()
+        {
+            fighterbody.AddForce(transform.forward * normalSpeedAcceleration);
+        }
+
         // 機体の前方への加速メソッド
         public void Acceleration()
         {
             fighterbody.AddForce(transform.forward * acceleration);
             fighterbody.velocity = Vector3.ClampMagnitude(fighterbody.velocity, maxSpeed);  // 最高速度制限
+        }
+
+        // ブレーキメソッド 加速度0にする
+        public void Brake()
+        {
+            fighterbody.AddForce(-transform.forward * normalSpeedAcceleration);
         }
 
         // 機体をz軸に旋回させるメソッド  左右どちらに傾くか
