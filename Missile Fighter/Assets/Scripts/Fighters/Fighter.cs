@@ -15,10 +15,11 @@ namespace Fighters
         // 前方への加速力
         [SerializeField] private float acceleration = 200.0f;
 
-        // 旋回・上昇・下降に対する力
+        // 旋回・上昇・下降・ヨーに対する力
         [SerializeField] private float rollingForce = 5.0f;
         [SerializeField] private float risingForce = 3.0f;
         [SerializeField] private float fallingForce = 1.0f;
+        [SerializeField] private float yawingForce = 0.75f;
 
         // ミサイルの発射口
         [SerializeField] private MissilePods missilePods;
@@ -68,6 +69,19 @@ namespace Fighters
             else if (direction == FighterDirectionConstant.DOWN)
             {
                 fighterbody.AddTorque(transform.right * fallingForce);
+            }
+        }
+
+        // 機体をy軸に旋回させるメソッド  左右どちらを向くか
+        public void Yaw(int direction)
+        {
+            if (direction == FighterDirectionConstant.LEFT)
+            {
+                fighterbody.AddTorque(transform.up * (-yawingForce));
+            }
+            else if (direction == FighterDirectionConstant.RIGHT)
+            {
+                fighterbody.AddTorque(transform.up * yawingForce);
             }
         }
     }

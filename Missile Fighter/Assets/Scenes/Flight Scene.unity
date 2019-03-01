@@ -669,6 +669,7 @@ MonoBehaviour:
   rollingForce: 5
   risingForce: 3
   fallingForce: 1
+  yawingForce: 0.75
   missilePods: {fileID: 380150367}
 --- !u!54 &1641723760
 Rigidbody:

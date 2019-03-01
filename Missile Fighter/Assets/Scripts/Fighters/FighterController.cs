@@ -15,6 +15,7 @@ namespace Fighters
         {
             InputRoll();
             InputPitch();
+            InputYaw();
             InputAccele();
             InputShotMissile();
         }
@@ -51,6 +52,19 @@ namespace Fighters
             if (Input.GetKey(KeyCode.S))
             {
                 fighter.Pitch(FighterDirectionConstant.UP);
+            }
+        }
+
+        // 左右への旋回に関する入力処理
+        void InputYaw()
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                fighter.Yaw(FighterDirectionConstant.LEFT);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                fighter.Yaw(FighterDirectionConstant.RIGHT);
             }
         }
 
