@@ -666,9 +666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 300
   acceleration: 200
+  rollingForce: 5
   risingForce: 3
   fallingForce: 1
-  rollingForce: 5
   missilePods: {fileID: 380150367}
 --- !u!54 &1641723760
 Rigidbody:

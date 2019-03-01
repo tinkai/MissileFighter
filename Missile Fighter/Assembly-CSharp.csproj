@@ -60,10 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Fighter.cs" />
-    <Compile Include="Assets\Scripts\FighterController.cs" />
-    <Compile Include="Assets\Scripts\Missile.cs" />
-    <Compile Include="Assets\Scripts\MissilePods.cs" />
+    <Compile Include="Assets\Scripts\Fighters\Fighter.cs" />
+    <Compile Include="Assets\Scripts\Fighters\FighterController.cs" />
+    <Compile Include="Assets\Scripts\Fighters\FighterDirectionConstant.cs" />
+    <Compile Include="Assets\Scripts\Fighters\MissilePods.cs" />
+    <Compile Include="Assets\Scripts\Missiles\Missile.cs" />
     <None Include="Assets\Asset Stores\StarSparrow\ReadMe.txt" />
     <None Include="Assets\Asset Stores\AurynSky\Rockets Missiles and Bombs\READ ME.txt" />
     <None Include="Assets\Asset Stores\StarSparrow\Materials\Unified\UnifiedMaterials.txt" />
