@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Fighters\Fighter.cs" />
+    <Compile Include="Assets\Scripts\Fighters\FighterCameraController.cs" />
     <Compile Include="Assets\Scripts\Fighters\FighterController.cs" />
     <Compile Include="Assets\Scripts\Fighters\FighterDirectionConstant.cs" />
     <Compile Include="Assets\Scripts\Fighters\MissilePods.cs" />
