@@ -11,31 +11,30 @@ namespace Fighters
 
 
         // 描画前に呼ばれるUpdate
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             InputRoll();
             InputPitch();
             InputYaw();
-            InputAccele();
-            InputBrake();
+            InputAcceleration();
             InputShotMissile();
         }
 
         // 加速ボタン処理
-        void InputAccele()
+        void InputAcceleration()
         {
+            // 機体の加速状態をボタン入力に応じて変更させる
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                fighter.Acceleration();
+                fighter.AccelerationStatement = FighterStatementConstant.ACCELERATION;
             }
-        }
-
-        // ブレーキボタン処理
-        void InputBrake()
-        {
-            if (Input.GetKey(KeyCode.LeftControl))
+            else if (Input.GetKey(KeyCode.LeftControl))
             {
-                fighter.Brake();
+                fighter.AccelerationStatement = FighterStatementConstant.BRAKE;
+            }
+            else
+            {
+                fighter.AccelerationStatement = FighterStatementConstant.NORMAL;
             }
         }
 

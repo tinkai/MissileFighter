@@ -13,7 +13,7 @@ namespace Fighters
         private float shotNextTime;
 
         // ミサイル発射のクールタイム
-        [SerializeField] private float shotDelay = 1.0f;
+        [SerializeField] private float shotDelay = 0.5f;
 
 
         // 全てのミサイルポッドからミサイルを打つメソッド

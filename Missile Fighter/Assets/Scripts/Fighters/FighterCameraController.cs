@@ -10,7 +10,7 @@ namespace Fighters
         [SerializeField] private GameObject thirdPersonCamera;  // 通常視点
         [SerializeField] private GameObject firstPersonCamera;
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.LeftAlt))
             {

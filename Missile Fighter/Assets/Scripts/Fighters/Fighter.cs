@@ -9,20 +9,28 @@ namespace Fighters
         // 機体を制御するリキッドボディ
         private Rigidbody fighterbody;
 
-        // 最高スピード
-        [SerializeField] private float maxSpeed = 300.0f;
+        // 機体の加速状態を表す変数
+        private int accelerationStatement = FighterStatementConstant.NORMAL;
+        public int AccelerationStatement
+        {
+            get { return accelerationStatement; }
+            set { accelerationStatement = value; }
+        }
 
         // 通常速度を保つための加速力
         [SerializeField] private float normalSpeedAcceleration = 150.0f;
 
         // アクセルしたときの加速力
-        [SerializeField] private float acceleration = 200.0f;
+        [SerializeField] private float acceleration = 300.0f;
 
         // 旋回・上昇・下降・ヨーに対する力
         [SerializeField] private float rollingForce = 5.0f;
         [SerializeField] private float risingForce = 3.0f;
         [SerializeField] private float fallingForce = 1.0f;
         [SerializeField] private float yawingForce = 0.75f;
+
+        // ブースター
+        [SerializeField] private Boosters boosters;
 
         // ミサイルの発射口
         [SerializeField] private MissilePods missilePods;
@@ -32,19 +40,37 @@ namespace Fighters
         }
 
 
-        void Start()
+        private void Start()
         {
             fighterbody = GetComponent<Rigidbody>();
         }
 
-        void Update()
+        private void FixedUpdate()
         {
-            //Debug.Log(fighterbody.velocity.magnitude);
+            UpdateAcceleration();
+            Debug.Log(fighterbody.velocity.magnitude);
         }
 
-        void FixedUpdate()
+        // 加速関係のUpdate
+        void UpdateAcceleration ()
         {
-            NormalSpeed();
+            // 状態によって加速するか減速か決定
+            // また、エフェクトも変更
+            switch (accelerationStatement)
+            {
+                case FighterStatementConstant.ACCELERATION:
+                    Acceleration();
+                    boosters.ChangeEffect(FighterStatementConstant.ACCELERATION);
+                    break;
+                case FighterStatementConstant.BRAKE:
+                    Brake();
+                    boosters.ChangeEffect(FighterStatementConstant.BRAKE);
+                    break;
+                default:
+                    NormalSpeed();
+                    boosters.ChangeEffect(FighterStatementConstant.NORMAL);
+                    break;
+            }
         }
 
         // 機体の通常速度
@@ -57,13 +83,12 @@ namespace Fighters
         public void Acceleration()
         {
             fighterbody.AddForce(transform.forward * acceleration);
-            fighterbody.velocity = Vector3.ClampMagnitude(fighterbody.velocity, maxSpeed);  // 最高速度制限
         }
 
         // ブレーキメソッド 加速度0にする
         public void Brake()
         {
-            fighterbody.AddForce(-transform.forward * normalSpeedAcceleration);
+            
         }
 
         // 機体をz軸に旋回させるメソッド  左右どちらに傾くか

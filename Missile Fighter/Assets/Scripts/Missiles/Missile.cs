@@ -32,7 +32,7 @@ namespace Missiles
 
         
 
-        void Start()
+        private void Start()
         {
             missilebody = gameObject.GetComponent<Rigidbody>();
             target = GameObject.Find("Anemy").transform;
@@ -46,7 +46,7 @@ namespace Missiles
             startGuidTime = Time.time + guidDelayTime;
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (Time.time >= startGuidTime)
             {
