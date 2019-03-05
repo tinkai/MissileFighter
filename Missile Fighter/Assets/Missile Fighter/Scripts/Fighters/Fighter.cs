@@ -39,6 +39,9 @@ namespace Fighters
             get { return missilePods; }
         }
 
+        // 爆発エフェクト
+        [SerializeField] private GameObject explosionEffect;
+
 
         private void Start()
         {
@@ -128,6 +131,20 @@ namespace Fighters
             {
                 fighterbody.AddTorque(transform.up * yawingForce);
             }
+        }
+
+        // 衝突処理
+        private void OnTriggerEnter(Collider other)
+        {
+            Dead();
+        }
+
+        // 死亡処理
+        void Dead()
+        {
+            GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(explosion, 5.0f);
+            Destroy(gameObject);
         }
     }
 }

@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Missile Fighter\Scripts\Anemy.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Boosters.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Fighter.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterCameraController.cs" />
