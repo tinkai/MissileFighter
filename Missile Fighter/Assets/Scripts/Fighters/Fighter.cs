@@ -48,7 +48,7 @@ namespace Fighters
         private void FixedUpdate()
         {
             UpdateAcceleration();
-            Debug.Log(fighterbody.velocity.magnitude);
+            //Debug.Log(fighterbody.velocity.magnitude);
         }
 
         // 加速関係のUpdate
