@@ -60,15 +60,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Missile Fighter\Scripts\Anemy.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Enemy\NewBehaviourScript.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Boosters.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Fighter.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterCameraController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterDirectionConstant.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterStatementConstant.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\LockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\MissilePods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Missiles\Missile.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarker.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />

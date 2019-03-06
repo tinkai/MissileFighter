@@ -65,6 +65,7 @@ MonoBehaviour:
   speed: 400
   inductionRate: 0.1
   shotForce: 3
+  lockOnTime: 3
   guidDelayTime: 1
 --- !u!96 &6175257900781602060
 TrailRenderer:
