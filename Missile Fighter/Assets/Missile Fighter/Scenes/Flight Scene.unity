@@ -601,7 +601,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746111534
 MonoBehaviour:
@@ -894,7 +894,7 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641723756
 GameObject:
@@ -1015,6 +1015,7 @@ MonoBehaviour:
   enemy: {fileID: 1523111292}
   missile: {fileID: 8474778418824805619, guid: 0c825126f41f2384fa3f2d22386633fc, type: 3}
   lockOnCircle: 150
+  lockOnDistance: 500
 --- !u!1 &1661761235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1108,7 @@ RectTransform:
   m_Children:
   - {fileID: 746111533}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1178,7 +1179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2032458315
 PrefabInstance:

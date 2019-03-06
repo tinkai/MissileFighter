@@ -30,6 +30,9 @@ namespace Fighters
         // ロックオン範囲
         [SerializeField] private float lockOnCircle = 150.0f;
 
+        // ロックオン最大距離
+        [SerializeField] private float lockOnDistance = 500.0f;
+
         // ロックオンしているか
         private bool isLockOn;
         public bool IsLockOn
@@ -64,25 +67,33 @@ namespace Fighters
                 // 敵との間に障害物がない場合
                 if (Physics.Linecast(transform.position, enemy.transform.position, LayerMask.GetMask("Field")) == false)
                 {
+                    target = enemy;
+
                     // カメラ座標に変換
                     Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, enemy.transform.position);
                     screenPoint.x -= (Screen.width / 2);
                     screenPoint.y -= (Screen.height / 2);
 
-                    // ロックオンサークル内の場合
-                    if (screenPoint.magnitude <= lockOnCircle)
+                    // 敵と自分の距離
+                    float distance = Vector3.Distance(gameObject.transform.position, enemy.transform.position);
+
+                    // ロックオンサークル内 && ロックオン射程内 の場合
+                    if (screenPoint.magnitude <= lockOnCircle && distance <= lockOnDistance)
                     {
-                        target = enemy;
                         lockOnElapsedTime += Time.deltaTime;
+                        return;
+                    }
+                    else
+                    {
+                        lockOnElapsedTime = 0;
                         return;
                     }
                 }
             }
 
-            // ロックオンできないとき
+            // 画面内にいない場合 || 障害物がある場合
             lockOnElapsedTime = 0;
             target = null;
-            isLockOn = false;
         }
     }
 }
