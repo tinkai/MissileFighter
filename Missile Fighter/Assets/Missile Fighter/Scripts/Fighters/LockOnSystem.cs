@@ -7,25 +7,15 @@ namespace Fighters
 {
     public class LockOnSystem : MonoBehaviour
     {
-        // 敵オブジェクト
-        public GameObject enemy;
+        // ロックオンターゲットの状態リスト
+        private List<LockOnTargetState> targetStateList;
+        public List<LockOnTargetState> TargetStateList
+        {
+            get { return targetStateList; }
+        }
 
         // ミサイル武装
         [SerializeField] private Missile missile;
-
-        // ロックオンターゲット ロックオン中のみ
-        private GameObject target;
-        public GameObject Target
-        {
-            get { return target; }
-        }
-
-        // ロックオン開始してからの時間
-        private float lockOnElapsedTime = 0;
-        public float LockOnElapsedTime
-        {
-            get { return lockOnElapsedTime; }
-        }
 
         // ロックオン範囲
         [SerializeField] private float lockOnCircle = 150.0f;
@@ -33,67 +23,93 @@ namespace Fighters
         // ロックオン最大距離
         [SerializeField] private float lockOnDistance = 500.0f;
 
-        // ロックオンしているか
-        private bool isLockOn;
-        public bool IsLockOn
-        {
-            get { return isLockOn; }
-        }
 
+        private void Start()
+        {
+            targetStateList = new List<LockOnTargetState>();
+            List<GameObject> enemys = StageData.Fighters.Instance.Enemys;
+
+            foreach (GameObject enemy in enemys)
+            {
+                targetStateList.Add(new LockOnTargetState(enemy));
+            }
+        }
 
         private void Update()
         {
             LockOnProcess();
+        }
 
-            // ロックオン完了時間を越したか
-            if (lockOnElapsedTime >= missile.LockOnTime)
+        // ロックオンしているターゲットリストを返す
+        public List<GameObject> GetLockOnTargetList()
+        {
+            List<GameObject> lockOnTargetList = new List<GameObject>();
+            foreach(LockOnTargetState targetState in targetStateList)
             {
-                isLockOn = true;
+                if (targetState.IsLockOn)
+                {
+                    lockOnTargetList.Add(targetState.Target);
+                }
             }
-            else
-            {
-                isLockOn = false;
-            }
-
+            return lockOnTargetList;
         }
 
         // ロックオン処理
         private void LockOnProcess()
         {
-            // 敵がいる場合 &&
-            // カメラに表示されている場合 ※シーンビューも含まれるので注意
-            if (enemy != null && enemy.GetComponent<Renderer>().isVisible)
+            // 敵がいない場合は、何もしない
+            if (StageData.Fighters.Instance.Enemys.Count == 0) { return; }
+
+            // 全ての敵を調査
+            foreach (LockOnTargetState targetState in targetStateList)
             {
-                // 敵との間に障害物がない場合
-                if (Physics.Linecast(transform.position, enemy.transform.position, LayerMask.GetMask("Field")) == false)
+                // カメラに表示されている場合 ※シーンビューも含まれるので注意
+                if (targetState.Target.GetComponent<Renderer>().isVisible)
                 {
-                    target = enemy;
-
-                    // カメラ座標に変換
-                    Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, enemy.transform.position);
-                    screenPoint.x -= (Screen.width / 2);
-                    screenPoint.y -= (Screen.height / 2);
-
-                    // 敵と自分の距離
-                    float distance = Vector3.Distance(gameObject.transform.position, enemy.transform.position);
-
-                    // ロックオンサークル内 && ロックオン射程内 の場合
-                    if (screenPoint.magnitude <= lockOnCircle && distance <= lockOnDistance)
+                    // 敵との間に障害物がない場合
+                    if (Physics.Linecast(transform.position, targetState.Target.transform.position, LayerMask.GetMask("Field")) == false)
                     {
-                        lockOnElapsedTime += Time.deltaTime;
-                        return;
-                    }
-                    else
-                    {
-                        lockOnElapsedTime = 0;
-                        return;
+                        targetState.IsVisible = true;   // 見えている
+
+                        // カメラ座標に変換
+                        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, targetState.Target.transform.position);
+                        screenPoint.x -= (Screen.width / 2);
+                        screenPoint.y -= (Screen.height / 2);
+
+                        // 敵と自分の距離
+                        float distance = Vector3.Distance(gameObject.transform.position, targetState.Target.transform.position);
+
+                        // ロックオンサークル内 && ロックオン射程内 の場合
+                        if (screenPoint.magnitude <= lockOnCircle && distance <= lockOnDistance)
+                        {
+                            targetState.LockOnElapsedTime += Time.deltaTime;
+
+                            // 武器のロックオン時間を超えたら、完全なロックオン
+                            if (targetState.LockOnElapsedTime >= missile.LockOnTime)
+                            {
+                                targetState.IsLockOn = true;
+                            }
+                            else
+                            {
+                                targetState.IsLockOn = false;
+                            }
+
+                            continue;
+                        }
+                        else
+                        {
+                            targetState.LockOnElapsedTime = 0;
+                            targetState.IsLockOn = false;
+                            continue;
+                        }
                     }
                 }
-            }
 
-            // 画面内にいない場合 || 障害物がある場合
-            lockOnElapsedTime = 0;
-            target = null;
+                // 画面内にいない場合 || 障害物がある場合
+                targetState.IsVisible = false;
+                targetState.LockOnElapsedTime = 0;
+                targetState.IsLockOn = false;
+            }
         }
     }
 }

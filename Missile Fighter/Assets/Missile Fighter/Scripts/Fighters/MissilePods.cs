@@ -27,19 +27,31 @@ namespace Fighters
                 return;
             }
 
-            // 子要素をすべて取得
-            foreach (Transform pod in gameObject.transform)
+            // ロックオンされているターゲットリストを取得
+            List<GameObject> targetList = lockOnSystem.GetLockOnTargetList();
+            
+            // ロックオンしていない場合はそのまま直進で打つ
+            if (targetList.Count == 0)
             {
-                GameObject missile = Instantiate(missilePrefab, pod.position, pod.rotation);
-                
-                // ロックオンしている場合
-                if (lockOnSystem.IsLockOn)
+                foreach (Transform pod in gameObject.transform)
                 {
-                    missile.GetComponent<Missile>().Target = lockOnSystem.Target.transform;
+                    Instantiate(missilePrefab, pod.position, pod.rotation);
+                }
+            } 
+            // ロックオンしている場合は、ターゲット全てに打つ
+            else
+            {
+                foreach(GameObject target in targetList)
+                {
+                    foreach (Transform pod in gameObject.transform)
+                    {
+                        GameObject missile = Instantiate(missilePrefab, pod.position, pod.rotation);
+                        missile.GetComponent<Missile>().Target = target.transform;  // ターゲット設定
+                    }
                 }
             }
 
-            shotNextTime = Time.time + shotDelay;
+            shotNextTime = Time.time + shotDelay;   // クール時間を新たに設定
         }
     }
 }
