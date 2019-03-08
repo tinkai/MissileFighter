@@ -136,6 +136,7 @@ namespace Fighters
         // 衝突処理
         private void OnTriggerEnter(Collider other)
         {
+            if (other.tag == "Player Weapon") { return; }
             Dead();
         }
 

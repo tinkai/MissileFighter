@@ -22,6 +22,9 @@ namespace Missiles
         // ミサイルの敵への誘導率
         [SerializeField] private float inductionRate = 0.1f;
 
+        // ミサイルの生存時間
+        [SerializeField] private float survivalTime = 10.0f;
+
         // ミサイルが誘導を始めるまでの移動方向と速度
         private Vector3 shotStartVector;
 
@@ -41,14 +44,16 @@ namespace Missiles
         // ミサイルが誘導を始める時間
         private float startGuidTime;
 
-        
+        // ミサイルの爆発エフェクト
+        [SerializeField] private GameObject explosionEffect;
+
 
         private void Start()
         {
             missilebody = gameObject.GetComponent<Rigidbody>();
 
             // 機体の速力にする
-            shotStartVector = GameObject.Find("Player Fighter").GetComponent<Rigidbody>().velocity;
+            shotStartVector = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
             // 機体速度と同速で下に射出
             missilebody.velocity = shotStartVector - transform.up * shotForce;
 
@@ -56,8 +61,19 @@ namespace Missiles
             startGuidTime = Time.time + guidDelayTime;
         }
 
+        private void Update()
+        {
+            // 生存時間処理
+            survivalTime -= Time.deltaTime;
+            if (survivalTime <= 0)
+            {
+                Explosion();
+            }
+        }
+
         private void FixedUpdate()
         {
+            // 誘導までの時間制御
             if (Time.time >= startGuidTime)
             {
                 GuidedTarget();
@@ -80,6 +96,22 @@ namespace Missiles
             Quaternion targetDirection = Quaternion.LookRotation(target.position - transform.position);
             // 自分の向いている方向からターゲット方向へ誘導率だけ向く
             transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, inductionRate);
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player" || other.tag == "Player Weapon") { return; }
+            Explosion();
+        }
+
+        // ミサイルの爆発・削除
+        void Explosion()
+        {
+            // 爆発エフェクトを動作させて削除
+            GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(explosion, 3.0f);
+            Destroy(gameObject);
         }
     }
 }

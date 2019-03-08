@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369235755}
   m_Layer: 0
-  m_Name: Left Pod
+  m_Name: Pod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,6 +332,8 @@ Transform:
   m_Children:
   - {fileID: 369235755}
   - {fileID: 1402051832}
+  - {fileID: 762605270}
+  - {fileID: 951903389}
   m_Father: {fileID: 1641723757}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,7 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 8474778418824805618, guid: 0c825126f41f2384fa3f2d22386633fc,
     type: 3}
-  shotDelay: 0.1
+  shotDelay: 0.25
   lockOnSystem: {fileID: 1641723762}
 --- !u!1 &381891180
 GameObject:
@@ -495,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 384205811, guid: 1ed5bdb4ec3a1c149b4f9798984ac277, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 384205811, guid: 1ed5bdb4ec3a1c149b4f9798984ac277, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -634,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 384205811, guid: 1ed5bdb4ec3a1c149b4f9798984ac277, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 384205811, guid: 1ed5bdb4ec3a1c149b4f9798984ac277, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -702,6 +704,66 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2032458315}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &762605269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762605270}
+  m_Layer: 0
+  m_Name: Pod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &762605270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762605269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2, y: -0.2, z: -0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 380150366}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &951903388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 951903389}
+  m_Layer: 0
+  m_Name: Pod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &951903389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951903388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2, y: -0.2, z: -0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 380150366}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1060073484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -923,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1402051832}
   m_Layer: 0
-  m_Name: Right Pod
+  m_Name: Pod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1097,13 +1159,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1641723757}
   - component: {fileID: 1641723760}
+  - component: {fileID: 1641723764}
+  - component: {fileID: 1641723763}
   - component: {fileID: 1641723759}
   - component: {fileID: 1641723758}
   - component: {fileID: 1641723761}
   - component: {fileID: 1641723762}
   m_Layer: 0
   m_Name: Player Fighter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1206,6 +1270,32 @@ MonoBehaviour:
   missile: {fileID: 8474778418824805619, guid: 0c825126f41f2384fa3f2d22386633fc, type: 3}
   lockOnCircle: 150
   lockOnDistance: 2000
+--- !u!65 &1641723763
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641723756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.5, z: 10}
+  m_Center: {x: 0, y: -0.3, z: 0}
+--- !u!65 &1641723764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641723756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13, y: 2.5, z: 5}
+  m_Center: {x: 0, y: -0.3, z: -3}
 --- !u!1 &1661761235
 GameObject:
   m_ObjectHideFlags: 0
