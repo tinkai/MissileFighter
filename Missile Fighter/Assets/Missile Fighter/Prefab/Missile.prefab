@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4579184118996140409}
   - component: {fileID: 7195140783835017514}
   - component: {fileID: 6175257900781602060}
-  - component: {fileID: 5754078013785262331}
   - component: {fileID: 8474778418824805619}
+  - component: {fileID: 3288645924856590091}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Player Weapon
@@ -31,7 +31,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4184731248263628}
+  - {fileID: 9113952418541089628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -155,20 +155,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!136 &5754078013785262331
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8474778418824805618}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 2
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.2}
 --- !u!114 &8474778418824805619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,11 +170,25 @@ MonoBehaviour:
   speed: 400
   inductionRate: 0.1
   survivalTime: 10
-  shotForce: 3
+  shotForce: 10
   lockOnTime: 3
-  guidDelayTime: 0.6
+  guidDelayTime: 0.5
   explosionEffect: {fileID: 814246500, guid: 62402771d89a74a47996378910737ccf, type: 3}
---- !u!1001 &1882466754
+--- !u!136 &3288645924856590091
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8474778418824805618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 2.5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.2}
+--- !u!1001 &9112363771179342674
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -245,21 +245,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184732056987662, guid: 4ad3bc25974961d4d99e3a48e735874a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4184732056987662, guid: 4ad3bc25974961d4d99e3a48e735874a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4184732056987662, guid: 4ad3bc25974961d4d99e3a48e735874a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ad3bc25974961d4d99e3a48e735874a, type: 3}
---- !u!4 &4184731248263628 stripped
+--- !u!4 &9113952418541089628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4184732056987662, guid: 4ad3bc25974961d4d99e3a48e735874a,
     type: 3}
-  m_PrefabInstance: {fileID: 1882466754}
+  m_PrefabInstance: {fileID: 9112363771179342674}
   m_PrefabAsset: {fileID: 0}

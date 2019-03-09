@@ -25,12 +25,6 @@ namespace Missiles
         // ミサイルの生存時間
         [SerializeField] private float survivalTime = 10.0f;
 
-        // ミサイルが誘導を始めるまでの移動方向と速度
-        private Vector3 shotStartVector;
-
-        // ミサイルの射出時の下への動き
-        [SerializeField] private float shotForce = 3.0f;
-
         // ミサイルのロックオン時間
         [SerializeField] private float lockOnTime = 5.0f;
         public float LockOnTime
@@ -38,27 +32,16 @@ namespace Missiles
             get { return lockOnTime; }
         }
 
-        // ミサイルが誘導を始めるまでの間隔
-        [SerializeField] private float guidDelayTime = 1.0f;
-
-        // ミサイルが誘導を始める時間
-        private float startGuidTime;
-
         // ミサイルの爆発エフェクト
         [SerializeField] private GameObject explosionEffect;
 
 
-        private void Start()
+        private void Awake()
         {
             missilebody = gameObject.GetComponent<Rigidbody>();
 
-            // 機体の速力にする
-            shotStartVector = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
             // 機体速度と同速で下に射出
-            missilebody.velocity = shotStartVector - transform.up * shotForce;
-
-            // 誘導を始める時間を設定
-            startGuidTime = Time.time + guidDelayTime;
+            missilebody.velocity = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
         }
 
         private void Update()
@@ -73,17 +56,9 @@ namespace Missiles
 
         private void FixedUpdate()
         {
-            // 誘導までの時間制御
-            if (Time.time >= startGuidTime)
-            {
-                GuidedTarget();
-                // 正面に力を加える
-                missilebody.AddForce(transform.forward * speed);
-            }
-            else
-            {
-                missilebody.AddForce(shotStartVector);
-            }
+            // 敵の方を向いて、正面に力を加える
+            GuidedTarget();
+            missilebody.AddForce(transform.forward * speed);
         }
 
         // ミサイルをターゲットに誘導するメソッド
@@ -98,7 +73,7 @@ namespace Missiles
             transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, inductionRate);
         }
 
-
+        // 衝突判定
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player" || other.tag == "Player Weapon") { return; }
