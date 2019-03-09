@@ -72,6 +72,8 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Missiles\Missile.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\StageData\Fighters.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarkers.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />

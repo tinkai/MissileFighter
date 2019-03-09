@@ -21,7 +21,7 @@ namespace Fighters
         [SerializeField] private float lockOnCircle = 150.0f;
 
         // ロックオン最大距離
-        [SerializeField] private float lockOnDistance = 500.0f;
+        [SerializeField] private float lockOnDistance = 5000.0f;
 
 
         private void Start()

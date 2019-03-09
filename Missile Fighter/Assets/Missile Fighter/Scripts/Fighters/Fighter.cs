@@ -51,7 +51,6 @@ namespace Fighters
         private void FixedUpdate()
         {
             UpdateAcceleration();
-            //Debug.Log(fighterbody.velocity.magnitude);
         }
 
         // 加速関係のUpdate
@@ -66,7 +65,6 @@ namespace Fighters
                     boosters.ChangeEffect(FighterStatementConstant.ACCELERATION);
                     break;
                 case FighterStatementConstant.BRAKE:
-                    Brake();
                     boosters.ChangeEffect(FighterStatementConstant.BRAKE);
                     break;
                 default:
@@ -86,12 +84,6 @@ namespace Fighters
         public void Acceleration()
         {
             fighterbody.AddForce(transform.forward * acceleration);
-        }
-
-        // ブレーキメソッド 加速度0にする
-        public void Brake()
-        {
-            
         }
 
         // 機体をz軸に旋回させるメソッド  左右どちらに傾くか
@@ -133,15 +125,8 @@ namespace Fighters
             }
         }
 
-        // 衝突処理
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == "Player Weapon") { return; }
-            Dead();
-        }
-
         // 死亡処理
-        void Dead()
+        public void Dead()
         {
             GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(explosion, 5.0f);

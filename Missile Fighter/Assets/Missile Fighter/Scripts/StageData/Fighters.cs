@@ -17,6 +17,7 @@ namespace StageData
 
             Enemys = new List<GameObject>();
 
+            Debug.Log(GameObject.FindGameObjectsWithTag("Enemy"));
             Enemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
     }
