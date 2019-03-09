@@ -3,14 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fighters;
 
-public class Enemy : MonoBehaviour
+namespace Units
 {
-    [SerializeField] private Fighter fighter;
+    [RequireComponent(typeof(Fighter))]
 
-
-    // 衝突処理
-    private void OnTriggerEnter(Collider other)
+    public class Enemy : MonoBehaviour
     {
-        fighter.Dead();
+        [SerializeField] private Fighter fighter;
+
+        private bool isDead;
+        public bool IsDead
+        {
+            get { return isDead; }
+        }
+
+
+        // 衝突処理
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Enemy Weapon") { return; }
+            Dead();
+        }
+
+        // 死亡処理
+        void Dead()
+        {
+            isDead = true;
+            fighter.Explosion();
+            gameObject.SetActive(false);    // 表示を消す
+        }
     }
 }

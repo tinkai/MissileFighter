@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Fighters
 {
+    [RequireComponent(typeof(Rigidbody))]
+
     public class Fighter : MonoBehaviour
     {
         // 機体を制御するリキッドボディ
@@ -54,7 +56,7 @@ namespace Fighters
         }
 
         // 加速関係のUpdate
-        void UpdateAcceleration ()
+        void UpdateAcceleration()
         {
             // 状態によって加速するか減速か決定
             // また、エフェクトも変更
@@ -125,12 +127,11 @@ namespace Fighters
             }
         }
 
-        // 死亡処理
-        public void Dead()
+        // 死亡時の爆発処理
+        public void Explosion()
         {
             GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(explosion, 5.0f);
-            Destroy(gameObject);
         }
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 namespace StageData
 {
-    public class Fighters : MonoBehaviour
+    public class Units : MonoBehaviour
     {
-        public static Fighters Instance;
+        // 一つだけ存在するように設定
+        public static Units Instance;
 
+        // 敵のリスト
         public List<GameObject> Enemys;
 
 
@@ -17,8 +19,8 @@ namespace StageData
 
             Enemys = new List<GameObject>();
 
-            Debug.Log(GameObject.FindGameObjectsWithTag("Enemy"));
             Enemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
+
     }
 }

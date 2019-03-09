@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fighters;
 
 namespace Missiles
 {
+    [RequireComponent(typeof(Rigidbody))]
+
     public class Missile : MonoBehaviour
     {
+        // ミサイルを打った戦闘機
+        private GameObject fighter;
+
         // ミサイルのリキッドボディ
         private Rigidbody missilebody;
 
@@ -40,6 +46,7 @@ namespace Missiles
         {
             missilebody = gameObject.GetComponent<Rigidbody>();
 
+            fighter = GameObject.FindWithTag("Player");
             // 機体速度と同速で下に射出
             missilebody.velocity = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
         }
@@ -64,8 +71,8 @@ namespace Missiles
         // ミサイルをターゲットに誘導するメソッド
         void GuidedTarget()
         {
-            // ターゲットがいない場合
-            if (target == null) { return; }
+            // ターゲットがいない場合 || アクティブではない
+            if (target == null || target.gameObject.activeInHierarchy == false) { return; }
 
             // 自分自身からターゲットを見た方向を取得
             Quaternion targetDirection = Quaternion.LookRotation(target.position - transform.position);
@@ -76,7 +83,8 @@ namespace Missiles
         // 衝突判定
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player" || other.tag == "Player Weapon") { return; }
+
+            if (other.tag == fighter.tag || other.tag == (fighter.tag + " Weapon")) { return; }
             Explosion();
         }
 

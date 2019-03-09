@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fighters;
 
-public class Player : MonoBehaviour
+namespace Units
 {
-    [SerializeField] private Fighter fighter;
+    [RequireComponent(typeof(Fighter))]
 
-
-    // 衝突処理
-    private void OnTriggerEnter(Collider other)
+    public class Player : MonoBehaviour
     {
-        if (other.tag == "Player Weapon") { return; }
-        fighter.Dead();
+        [SerializeField] private Fighter fighter;
+
+
+        // 衝突処理
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player Weapon") { return; }
+            fighter.Explosion();
+        }
     }
 }

@@ -5398,8 +5398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boosters:
   - {fileID: 167419089}
-  - {fileID: 0}
-  - {fileID: 0}
   normalStateEffectScale: {x: 0.6, y: 0.6, z: 0.6}
   accelerationStateEffectScale: {x: 1, y: 1, z: 1}
   brakeStateEffectScale: {x: 0.1, y: 0.1, z: 0.1}
@@ -10211,6 +10209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fighter: {fileID: 1603409351789623068}
+  IsDead: 0
 --- !u!114 &1603409351789623068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10229,6 +10228,6 @@ MonoBehaviour:
   risingForce: 3
   fallingForce: 1
   yawingForce: 0.75
-  boosters: {fileID: 0}
-  missilePods: {fileID: 0}
+  boosters: {fileID: 1330161632}
+  missilePods: {fileID: 376314342}
   explosionEffect: {fileID: 231792698, guid: 76cd86f5ad5cca840adbfee415284a36, type: 3}

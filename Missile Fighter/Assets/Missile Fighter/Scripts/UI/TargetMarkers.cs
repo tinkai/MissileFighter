@@ -4,75 +4,78 @@ using UnityEngine;
 using UnityEngine.UI;
 using Fighters;
 
-public class TargetMarkers : MonoBehaviour
+namespace UI
 {
-    // ロックオンシステム
-    [SerializeField] private LockOnSystem lockOnSystem;
-
-    // マーカーのプレハブ
-    [SerializeField] private GameObject targetMarkerPrefab;
-
-    // ロックオン数だけのマーカー
-    private List<GameObject> markerList;
-
-    // ロックオンの設定色
-    private Color lockOnColor;
-    private Color unlockOnColor;
-
-
-    private void Start()
+    public class TargetMarkers : MonoBehaviour
     {
-        markerList = new List<GameObject>();
+        // ロックオンシステム
+        [SerializeField] private LockOnSystem lockOnSystem;
 
-        lockOnColor = Color.red;
-        unlockOnColor = Color.green;
-    }
+        // マーカーのプレハブ
+        [SerializeField] private GameObject targetMarkerPrefab;
 
-    private void Update()
-    {
-        // 見えているターゲットリストを作成
-        List<LockOnTargetState> visibleTargetStateList = new List<LockOnTargetState>();
-        foreach (LockOnTargetState targetState in lockOnSystem.TargetStateList)
+        // ロックオン数だけのマーカー
+        private List<GameObject> markerList;
+
+        // ロックオンの設定色
+        private Color lockOnColor;
+        private Color unlockOnColor;
+
+
+        private void Start()
         {
-            if (targetState.IsVisible)
-            {
-                visibleTargetStateList.Add(targetState);
-            }
+            markerList = new List<GameObject>();
+
+            lockOnColor = Color.red;
+            unlockOnColor = Color.green;
         }
 
-        // ターゲットマーカーの個数を調整
-        while (markerList.Count != visibleTargetStateList.Count)
+        private void Update()
         {
-            if (markerList.Count < visibleTargetStateList.Count)
+            // 見えているターゲットリストを作成
+            List<LockOnTargetState> visibleTargetStateList = new List<LockOnTargetState>();
+            foreach (LockOnTargetState targetState in lockOnSystem.TargetStateList)
             {
-                // 少ない場合は作成
-                GameObject marker = Instantiate(targetMarkerPrefab);
-                marker.transform.SetParent(transform, false);   // 親を自分に設定
-                markerList.Add(marker);
+                if (targetState.IsVisible)
+                {
+                    visibleTargetStateList.Add(targetState);
+                }
             }
-            else if (markerList.Count > visibleTargetStateList.Count)
-            {
-                // 多い場合は削除
-                Destroy(markerList[markerList.Count - 1]);
-                markerList.RemoveAt(markerList.Count - 1);
-            }
-        }
-        
-        // マーカーの設定
-        for (int i = 0; i < visibleTargetStateList.Count; i++)
-        {
-            // マーカーの画面上の位置を設定
-            Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, visibleTargetStateList[i].Target.transform.position);
-            markerList[i].transform.position = new Vector3(screenPosition.x, screenPosition.y, 0f);
 
-            // マーカーの色を設定
-            if (visibleTargetStateList[i].IsLockOn)
+            // ターゲットマーカーの個数を調整
+            while (markerList.Count != visibleTargetStateList.Count)
             {
-                markerList[i].GetComponent<Image>().color = lockOnColor;    // ロックオン完了
+                if (markerList.Count < visibleTargetStateList.Count)
+                {
+                    // 少ない場合は作成
+                    GameObject marker = Instantiate(targetMarkerPrefab);
+                    marker.transform.SetParent(transform, false);   // 親を自分に設定
+                    markerList.Add(marker);
+                }
+                else if (markerList.Count > visibleTargetStateList.Count)
+                {
+                    // 多い場合は削除
+                    Destroy(markerList[markerList.Count - 1]);
+                    markerList.RemoveAt(markerList.Count - 1);
+                }
             }
-            else
+
+            // マーカーの設定
+            for (int i = 0; i < visibleTargetStateList.Count; i++)
             {
-                markerList[i].GetComponent<Image>().color = unlockOnColor;  // 画面には写っている
+                // マーカーの画面上の位置を設定
+                Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, visibleTargetStateList[i].Target.transform.position);
+                markerList[i].transform.position = new Vector3(screenPosition.x, screenPosition.y, 0f);
+
+                // マーカーの色を設定
+                if (visibleTargetStateList[i].IsLockOn)
+                {
+                    markerList[i].GetComponent<Image>().color = lockOnColor;    // ロックオン完了
+                }
+                else
+                {
+                    markerList[i].GetComponent<Image>().color = unlockOnColor;  // 画面には写っている
+                }
             }
         }
     }

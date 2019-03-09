@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Missiles;
+using Units;
 
 namespace Fighters
 {
@@ -27,7 +28,7 @@ namespace Fighters
         private void Start()
         {
             targetStateList = new List<LockOnTargetState>();
-            List<GameObject> enemys = StageData.Fighters.Instance.Enemys;
+            List<GameObject> enemys = StageData.Units.Instance.Enemys;
 
             foreach (GameObject enemy in enemys)
             {
@@ -58,50 +59,50 @@ namespace Fighters
         private void LockOnProcess()
         {
             // 敵がいない場合は、何もしない
-            if (StageData.Fighters.Instance.Enemys.Count == 0) { return; }
+            if (StageData.Units.Instance.Enemys.Count == 0) { return; }
 
             // 全ての敵を調査
             foreach (LockOnTargetState targetState in targetStateList)
             {
-                // カメラに表示されている場合 ※シーンビューも含まれるので注意
-                if (targetState.Target.GetComponent<Renderer>().isVisible)
+                // 敵が死んでいない
+                // && カメラに表示されている場合 ※シーンビューも含まれるので注意
+                // && 敵との間に障害物がない場合
+                if (targetState.Target.GetComponent<Enemy>().IsDead == false
+                    && targetState.Target.GetComponent<Renderer>().isVisible 
+                    && Physics.Linecast(transform.position, targetState.Target.transform.position, LayerMask.GetMask("Field")) == false)
                 {
-                    // 敵との間に障害物がない場合
-                    if (Physics.Linecast(transform.position, targetState.Target.transform.position, LayerMask.GetMask("Field")) == false)
+                    targetState.IsVisible = true;   // 見えている
+
+                    // カメラ座標に変換
+                    Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, targetState.Target.transform.position);
+                    screenPoint.x -= (Screen.width / 2);
+                    screenPoint.y -= (Screen.height / 2);
+
+                    // 敵と自分の距離
+                    float distance = Vector3.Distance(gameObject.transform.position, targetState.Target.transform.position);
+
+                    // ロックオンサークル内 && ロックオン射程内 の場合
+                    if (screenPoint.magnitude <= lockOnCircle && distance <= lockOnDistance)
                     {
-                        targetState.IsVisible = true;   // 見えている
+                        targetState.LockOnElapsedTime += Time.deltaTime;
 
-                        // カメラ座標に変換
-                        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, targetState.Target.transform.position);
-                        screenPoint.x -= (Screen.width / 2);
-                        screenPoint.y -= (Screen.height / 2);
-
-                        // 敵と自分の距離
-                        float distance = Vector3.Distance(gameObject.transform.position, targetState.Target.transform.position);
-
-                        // ロックオンサークル内 && ロックオン射程内 の場合
-                        if (screenPoint.magnitude <= lockOnCircle && distance <= lockOnDistance)
+                        // 武器のロックオン時間を超えたら、完全なロックオン
+                        if (targetState.LockOnElapsedTime >= missile.LockOnTime)
                         {
-                            targetState.LockOnElapsedTime += Time.deltaTime;
-
-                            // 武器のロックオン時間を超えたら、完全なロックオン
-                            if (targetState.LockOnElapsedTime >= missile.LockOnTime)
-                            {
-                                targetState.IsLockOn = true;
-                            }
-                            else
-                            {
-                                targetState.IsLockOn = false;
-                            }
-
-                            continue;
+                            targetState.IsLockOn = true;
                         }
                         else
                         {
-                            targetState.LockOnElapsedTime = 0;
                             targetState.IsLockOn = false;
-                            continue;
                         }
+
+                        continue;
+                    }
+                    else
+                    {
+                        targetState.LockOnElapsedTime = 0;
+                        targetState.IsLockOn = false;
+                        continue;
                     }
                 }
 

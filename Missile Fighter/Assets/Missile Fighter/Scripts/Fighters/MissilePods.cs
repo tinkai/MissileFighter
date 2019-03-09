@@ -16,6 +16,7 @@ namespace Fighters
         // ミサイル発射のクールタイム
         [SerializeField] private float shotDelay = 0.5f;
 
+        // ロックオンシステム
         [SerializeField] private LockOnSystem lockOnSystem;
 
 
