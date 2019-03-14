@@ -9,6 +9,9 @@ namespace StageData
         // 一つだけ存在するように設定
         public static Units Instance;
 
+        // プレイヤー
+        public GameObject Player;
+
         // 敵のリスト
         public List<GameObject> Enemys;
 
@@ -17,8 +20,8 @@ namespace StageData
         {
             Instance = this;
 
+            Player = GameObject.FindWithTag("Player");
             Enemys = new List<GameObject>();
-
             Enemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
 

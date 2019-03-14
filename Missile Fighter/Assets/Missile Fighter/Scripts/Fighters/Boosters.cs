@@ -7,13 +7,23 @@ namespace Fighters
     public class Boosters : MonoBehaviour
     {
         // ブースター単体オブジェクト配列
-        [SerializeField] private GameObject[] boosters;
+        private GameObject[] boosters;
 
         // ストップ・通常・加速時のエフェクトの大きさ
         [SerializeField] private Vector3 normalStateEffectScale;
         [SerializeField] private Vector3 accelerationStateEffectScale;
         [SerializeField] private Vector3 brakeStateEffectScale;
 
+        private void Start()
+        {
+            boosters = new GameObject[transform.childCount];
+            int i = 0;
+            foreach (Transform childTransform in transform)
+            {
+                boosters[i] = childTransform.gameObject;
+                i++;
+            }
+        }
 
         // エフェクトを現在の機体の加速状態に変更
         public void ChangeEffect(int state)
@@ -32,9 +42,10 @@ namespace Fighters
                     break;
             }
 
+            // 全てのブースターに適用
             for (int i = 0; i < boosters.Length; i++)
             {
-                boosters[i].gameObject.transform.localScale = scale;
+                boosters[i].transform.localScale = scale;
             }
         }
 

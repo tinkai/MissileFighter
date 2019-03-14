@@ -32,10 +32,10 @@ namespace Fighters
         [SerializeField] private float yawingForce = 0.75f;
 
         // ブースター
-        [SerializeField] private Boosters boosters;
+        private Boosters boosters;
 
         // ミサイルの発射口
-        [SerializeField] private MissilePods missilePods;
+        private MissilePods missilePods;
         public MissilePods MissilePods
         {
             get { return missilePods; }
@@ -48,6 +48,8 @@ namespace Fighters
         private void Start()
         {
             fighterbody = GetComponent<Rigidbody>();
+            boosters = GetComponentInChildren<Boosters>();
+            missilePods = GetComponentInChildren<MissilePods>();
         }
 
         private void FixedUpdate()
@@ -56,7 +58,7 @@ namespace Fighters
         }
 
         // 加速関係のUpdate
-        void UpdateAcceleration()
+        private void UpdateAcceleration()
         {
             // 状態によって加速するか減速か決定
             // また、エフェクトも変更
@@ -77,13 +79,13 @@ namespace Fighters
         }
 
         // 機体の通常速度
-        public void NormalSpeed()
+        private void NormalSpeed()
         {
             fighterbody.AddForce(transform.forward * normalSpeedAcceleration);
         }
 
         // 機体の前方への加速メソッド
-        public void Acceleration()
+        private void Acceleration()
         {
             fighterbody.AddForce(transform.forward * acceleration);
         }

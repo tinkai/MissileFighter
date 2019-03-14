@@ -9,8 +9,13 @@ namespace Units
 
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Fighter fighter;
+        private Fighter fighter;
 
+
+        private void Start()
+        {
+            fighter = GetComponent<Fighter>();
+        }
 
         // 衝突処理
         private void OnTriggerEnter(Collider other)

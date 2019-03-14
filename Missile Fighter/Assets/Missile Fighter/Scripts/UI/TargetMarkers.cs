@@ -8,8 +8,8 @@ namespace UI
 {
     public class TargetMarkers : MonoBehaviour
     {
-        // ロックオンシステム
-        [SerializeField] private LockOnSystem lockOnSystem;
+        // プレイヤーのロックオンシステム
+        private LockOnSystem lockOnSystem;
 
         // マーカーのプレハブ
         [SerializeField] private GameObject targetMarkerPrefab;
@@ -24,6 +24,8 @@ namespace UI
 
         private void Start()
         {
+            lockOnSystem = GameObject.FindWithTag("Player").GetComponent<LockOnSystem>();
+
             markerList = new List<GameObject>();
 
             lockOnColor = Color.red;

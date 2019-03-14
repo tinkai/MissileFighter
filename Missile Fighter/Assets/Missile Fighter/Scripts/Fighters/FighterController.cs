@@ -7,10 +7,14 @@ namespace Fighters
     public class FighterController : MonoBehaviour
     {
         // 操作する戦闘機
-        [SerializeField] private Fighter fighter;
+        private Fighter fighter;
 
 
-        // 描画前に呼ばれるUpdate
+        private void Start()
+        {
+            fighter = GetComponent<Fighter>();
+        }
+
         private void FixedUpdate()
         {
             InputRoll();

@@ -9,7 +9,7 @@ namespace Units
 
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private Fighter fighter;
+        private Fighter fighter;
 
         private bool isDead;
         public bool IsDead
@@ -17,6 +17,11 @@ namespace Units
             get { return isDead; }
         }
 
+
+        private void Start()
+        {
+            fighter = GetComponent<Fighter>();
+        }
 
         // 衝突処理
         private void OnTriggerEnter(Collider other)

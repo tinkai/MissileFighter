@@ -17,8 +17,13 @@ namespace Fighters
         [SerializeField] private float shotDelay = 0.5f;
 
         // ロックオンシステム
-        [SerializeField] private LockOnSystem lockOnSystem;
+        private LockOnSystem lockOnSystem;
 
+
+        private void Start()
+        {
+            lockOnSystem = GetComponentInParent<LockOnSystem>();
+        }
 
         // 全てのミサイルポッドからミサイルを打つメソッド
         public void ShotMissile()
