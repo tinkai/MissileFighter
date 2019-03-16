@@ -63,14 +63,14 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Boosters.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Fighter.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterCameraController.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterDirectionConstant.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\FighterStatementConstant.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\LockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\LockOnTargetState.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\MissilePods.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\PlayerController.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\GlobalStageDatas\GlobalStageData.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Missiles\Missile.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\StageData\Units.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarkers.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />

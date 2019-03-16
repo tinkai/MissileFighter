@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     public class Boosters : MonoBehaviour
     {
@@ -14,8 +14,11 @@ namespace Fighters
         [SerializeField] private Vector3 accelerationStateEffectScale;
         [SerializeField] private Vector3 brakeStateEffectScale;
 
+        //***********************************************************
+
         private void Start()
         {
+            // ブースター配列の設定
             boosters = new GameObject[transform.childCount];
             int i = 0;
             foreach (Transform childTransform in transform)

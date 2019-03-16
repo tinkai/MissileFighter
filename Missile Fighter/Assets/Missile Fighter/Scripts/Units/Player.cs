@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Fighters;
+using MissileFighter.Fighters;
 
-namespace Units
+namespace MissileFighter.Units
 {
     [RequireComponent(typeof(Fighter))]
 
     public class Player : MonoBehaviour
     {
+        // 機体
         private Fighter fighter;
 
+        //***********************************************************
 
         private void Start()
         {

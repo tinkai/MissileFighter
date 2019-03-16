@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     [RequireComponent(typeof(Rigidbody))]
 
@@ -44,6 +44,7 @@ namespace Fighters
         // 爆発エフェクト
         [SerializeField] private GameObject explosionEffect;
 
+        //***********************************************************
 
         private void Start()
         {

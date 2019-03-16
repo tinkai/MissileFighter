@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     public class FighterStatementConstant : MonoBehaviour
     {

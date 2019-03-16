@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Fighters;
+using MissileFighter.Fighters;
 
-namespace Missiles
+namespace MissileFighter.Missiles
 {
     [RequireComponent(typeof(Rigidbody))]
 
@@ -41,6 +41,7 @@ namespace Missiles
         // ミサイルの爆発エフェクト
         [SerializeField] private GameObject explosionEffect;
 
+        //***********************************************************
 
         private void Awake()
         {

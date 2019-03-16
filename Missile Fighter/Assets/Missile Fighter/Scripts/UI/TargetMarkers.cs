@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Fighters;
+using MissileFighter.Fighters;
 
-namespace UI
+namespace MissileFighter.UI
 {
     public class TargetMarkers : MonoBehaviour
     {
@@ -14,13 +14,14 @@ namespace UI
         // マーカーのプレハブ
         [SerializeField] private GameObject targetMarkerPrefab;
 
-        // ロックオン数だけのマーカー
+        // ロックオン数だけのマーカーリスト
         private List<GameObject> markerList;
 
         // ロックオンの設定色
         private Color lockOnColor;
         private Color unlockOnColor;
 
+        //***********************************************************
 
         private void Start()
         {

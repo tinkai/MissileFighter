@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Units;
+using MissileFighter.Units;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     public class LockOnTargetState
     {
@@ -19,6 +19,7 @@ namespace Fighters
         // ロックオンしているか
         public bool IsLockOn;
 
+        //***********************************************************
 
         // コンストラクタ
         public LockOnTargetState(Enemy target)

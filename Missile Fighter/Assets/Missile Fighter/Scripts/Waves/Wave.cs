@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Units;
+using MissileFighter.Units;
 
-public class Wave : MonoBehaviour
+namespace MissileFighter.Waves
 {
-    // 敵パーティ
-    private Enemy[] enemys;
-    public Enemy[] Enemys
+    public class Wave : MonoBehaviour
     {
-        get { return enemys; }
+        // 敵パーティ
+        private Enemy[] enemys;
+        public Enemy[] Enemys
+        {
+            get { return enemys; }
+        }
+
+        //***********************************************************
+
+        private void Start()
+        {
+            enemys = GetComponentsInChildren<Enemy>();
+        }
+
     }
-
-
-    private void Start()
-    {
-        enemys = GetComponentsInChildren<Enemy>();
-    }
-
 }

@@ -1,68 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StageData;
-using Units;
-using Fighters;
+using MissileFighter.GlobalStageDatas;
+using MissileFighter.Units;
+using MissileFighter.Fighters;
 
-public class WaveManager : MonoBehaviour
+namespace MissileFighter.Waves
 {
-    // 敵の波を表すWave配列
-    private Wave[] waves;
-
-    // 現在のWave番号
-    private int currentWave;
-
-
-    private void Start()
+    public class WaveManager : MonoBehaviour
     {
-        waves = GetComponentsInChildren<Wave>();
-        for (int i = 1; i < waves.Length; i++)
+        // 敵の波を表すWave配列
+        private Wave[] waves;
+
+        // 現在のWave番号
+        private int currentWave;
+
+        //***********************************************************
+
+        private void Start()
         {
-            waves[i].gameObject.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        Debug.Log(waves.Length);
-        // 敵がいないなら次のWaveへ
-        if (IsAllDeadEnemy())
-        {
-            GoToNextWave();
-            StageData.Units.Instance.Player.GetComponent<LockOnSystem>().UpdateEnemyList();
-        }
-    }
-
-    public Wave GetCurrentWave()
-    {
-        return waves[currentWave];
-    }
-
-    // 現在のWaveの敵が全て死んでいるか確認
-    private bool IsAllDeadEnemy()
-    {
-        foreach (Enemy enemy in waves[currentWave].Enemys)
-        {
-            if (enemy.IsDead == false)
+            waves = GetComponentsInChildren<Wave>();
+            for (int i = 1; i < waves.Length; i++)
             {
-                return false;
+                waves[i].gameObject.SetActive(false);
             }
         }
 
-        return true;
-    }
-
-    // 次のWaveに移行するメソッド
-    public void GoToNextWave()
-    {
-        waves[currentWave].gameObject.SetActive(false);
-
-        if (currentWave++ == waves.Length)
+        private void Update()
         {
-            return;
+            // 敵がいないなら次のWaveへ
+            if (IsAllDeadEnemy())
+            {
+                GoToNextWave();
+                GlobalStageData.Instance.Player.GetComponent<LockOnSystem>().UpdateEnemyList();
+            }
         }
 
-        waves[currentWave].gameObject.SetActive(true);
+        public Wave GetCurrentWave()
+        {
+            return waves[currentWave];
+        }
+
+        // 現在のWaveの敵が全て死んでいるか確認
+        private bool IsAllDeadEnemy()
+        {
+            foreach (Enemy enemy in waves[currentWave].Enemys)
+            {
+                if (enemy.IsDead == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // 次のWaveに移行するメソッド
+        public void GoToNextWave()
+        {
+            waves[currentWave].gameObject.SetActive(false);
+
+            if (currentWave++ == waves.Length)
+            {
+                return;
+            }
+
+            waves[currentWave].gameObject.SetActive(true);
+        }
     }
 }

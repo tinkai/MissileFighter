@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     public class FighterCameraController : MonoBehaviour
     {
         // カメラオブジェクト
         [SerializeField] private GameObject thirdPersonCamera;  // 通常視点
         [SerializeField] private GameObject firstPersonCamera;
+
+        //***********************************************************
 
         private void Update()
         {

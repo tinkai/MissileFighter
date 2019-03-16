@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Missiles;
-using Units;
+using MissileFighter.Missiles;
+using MissileFighter.Units;
+using MissileFighter.GlobalStageDatas;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     public class LockOnSystem : MonoBehaviour
     {
@@ -24,11 +25,12 @@ namespace Fighters
         // ロックオン最大距離
         [SerializeField] private float lockOnDistance = 5000.0f;
 
+        //***********************************************************
 
         private void Start()
         {
             targetStateList = new List<LockOnTargetState>();
-            Enemy[] enemys = StageData.Units.Instance.WaveManager.GetCurrentWave().Enemys;
+            Enemy[] enemys = GlobalStageData.Instance.WaveManager.GetCurrentWave().Enemys;
 
             foreach (Enemy enemy in enemys)
             {
@@ -46,7 +48,7 @@ namespace Fighters
         {
             targetStateList.Clear();
 
-            Enemy[] enemys = StageData.Units.Instance.WaveManager.GetCurrentWave().Enemys;
+            Enemy[] enemys = GlobalStageData.Instance.WaveManager.GetCurrentWave().Enemys;
 
             foreach (Enemy enemy in enemys)
             {

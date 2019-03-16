@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Missiles;
+using MissileFighter.Missiles;
 
-namespace Fighters
+namespace MissileFighter.Fighters
 {
     public class MissilePods : MonoBehaviour
     {
@@ -19,6 +19,7 @@ namespace Fighters
         // ロックオンシステム
         private LockOnSystem lockOnSystem;
 
+        //***********************************************************
 
         private void Start()
         {
