@@ -71,6 +71,10 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\PlayerController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\GlobalStageDatas\GlobalStageData.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Missiles\Missile.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\BattleSceneManager.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\GameClearSceneManager.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\GameOverSceneManager.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\TitleSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarkers.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />

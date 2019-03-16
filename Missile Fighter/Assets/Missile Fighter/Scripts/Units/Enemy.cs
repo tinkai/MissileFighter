@@ -12,6 +12,7 @@ namespace MissileFighter.Units
         // 機体
         private Fighter fighter;
 
+        // 死んだか
         private bool isDead;
         public bool IsDead
         {

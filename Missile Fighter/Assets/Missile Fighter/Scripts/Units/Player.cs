@@ -12,6 +12,13 @@ namespace MissileFighter.Units
         // 機体
         private Fighter fighter;
 
+        // 死んだか
+        private bool isDead;
+        public bool IsDead
+        {
+            get { return isDead; }
+        }
+
         //***********************************************************
 
         private void Start()
@@ -23,7 +30,15 @@ namespace MissileFighter.Units
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player Weapon") { return; }
+            Dead();
+        }
+
+        // 死亡処理
+        void Dead()
+        {
+            isDead = true;
             fighter.Explosion();
+            gameObject.SetActive(false);    // 表示を消す
         }
     }
 }

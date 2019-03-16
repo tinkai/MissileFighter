@@ -351,6 +351,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 305069226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &441007076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441007078}
+  - component: {fileID: 441007077}
+  m_Layer: 0
+  m_Name: Scene Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441007077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441007076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb43f33edde6740e59fdf4487d48335d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &441007078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441007076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 100, z: 1247.0767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &549152342
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &907297756
 PrefabInstance:
@@ -482,6 +525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Fighter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623062, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376314342, guid: ed51c6f551971824f8b72b926fea5ffe, type: 3}
       propertyPath: lockOnSystem
@@ -566,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1152657994
 Transform:
   m_ObjectHideFlags: 0
@@ -847,7 +895,7 @@ RectTransform:
   - {fileID: 1345243939}
   - {fileID: 549152343}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -964,7 +1012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2010416058
 GameObject:
@@ -997,7 +1045,7 @@ Transform:
   - {fileID: 1820056476}
   - {fileID: 1152657994}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2010416060
 MonoBehaviour:
@@ -1022,6 +1070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Fighter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623062, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376314342, guid: ed51c6f551971824f8b72b926fea5ffe, type: 3}
       propertyPath: lockOnSystem
@@ -1217,7 +1270,7 @@ PrefabInstance:
     - target: {fileID: 7671097707414706869, guid: 8468d011a0bcf2a49b7c996beeed6256,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7671097707414706869, guid: 8468d011a0bcf2a49b7c996beeed6256,
         type: 3}

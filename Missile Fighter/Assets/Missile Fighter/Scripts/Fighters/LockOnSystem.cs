@@ -48,6 +48,8 @@ namespace MissileFighter.Fighters
         {
             targetStateList.Clear();
 
+            if (GlobalStageData.Instance.WaveManager.IsEndWave()) { return; }
+
             Enemy[] enemys = GlobalStageData.Instance.WaveManager.GetCurrentWave().Enemys;
 
             foreach (Enemy enemy in enemys)

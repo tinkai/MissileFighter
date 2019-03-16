@@ -29,16 +29,28 @@ namespace MissileFighter.Waves
         private void Update()
         {
             // 敵がいないなら次のWaveへ
-            if (IsAllDeadEnemy())
+            if (IsEndWave() == false && IsAllDeadEnemy())
             {
                 GoToNextWave();
+                // プレイヤーのロックオンシステムのターゲットを更新
                 GlobalStageData.Instance.Player.GetComponent<LockOnSystem>().UpdateEnemyList();
             }
         }
 
+        // 現在のウェーブを返す
         public Wave GetCurrentWave()
         {
             return waves[currentWave];
+        }
+
+        // 全てのウェーブが終了しているか
+        public bool IsEndWave()
+        {
+            if (currentWave == waves.Length)
+            {
+                return true;
+            }
+            return false;
         }
 
         // 現在のWaveの敵が全て死んでいるか確認
@@ -51,7 +63,6 @@ namespace MissileFighter.Waves
                     return false;
                 }
             }
-
             return true;
         }
 
@@ -60,7 +71,7 @@ namespace MissileFighter.Waves
         {
             waves[currentWave].gameObject.SetActive(false);
 
-            if (currentWave++ == waves.Length)
+            if (++currentWave == waves.Length)
             {
                 return;
             }

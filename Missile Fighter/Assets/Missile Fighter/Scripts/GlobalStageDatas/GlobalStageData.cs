@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Waves;
+using MissileFighter.Units;
 
 namespace MissileFighter.GlobalStageDatas
 {
@@ -14,10 +15,7 @@ namespace MissileFighter.GlobalStageDatas
         public WaveManager WaveManager;
 
         // プレイヤー
-        public GameObject Player;
-
-        // 敵のリスト
-        public List<GameObject> Enemys;
+        public Player Player;
 
         //***********************************************************
 
@@ -25,12 +23,7 @@ namespace MissileFighter.GlobalStageDatas
         {
             Instance = this;
 
-            Player = GameObject.FindWithTag("Player");
-        }
-
-        public void UpdateEnemys()
-        {
-
+            Player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
     }
 }
