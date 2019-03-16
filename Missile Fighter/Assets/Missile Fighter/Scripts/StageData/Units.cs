@@ -9,6 +9,9 @@ namespace StageData
         // 一つだけ存在するように設定
         public static Units Instance;
 
+        // 敵のウェーブを管理するクラス
+        public WaveManager WaveManager;
+
         // プレイヤー
         public GameObject Player;
 
@@ -21,9 +24,11 @@ namespace StageData
             Instance = this;
 
             Player = GameObject.FindWithTag("Player");
-            Enemys = new List<GameObject>();
-            Enemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         }
 
+        public void UpdateEnemys()
+        {
+
+        }
     }
 }

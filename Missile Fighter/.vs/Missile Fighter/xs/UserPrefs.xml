@@ -1,20 +1,12 @@
 ﻿<Properties StartupConfiguration="{049A1624-2532-6942-6399-A9475B63540B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Units/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Waves/WaveManager.cs">
     <Files>
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/FighterCameraController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/FighterDirectionConstant.cs" Line="1" Column="1" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/Boosters.cs" Line="45" Column="27" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="7" Column="8" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnTargetState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/MissilePods.cs" Line="25" Column="65" />
-      <File FileName="Assets/Missile Fighter/Scripts/Missiles/Missile.cs" Line="1" Column="1" />
-      <File FileName="Assets/Missile Fighter/Scripts/StageData/Units.cs" Line="23" Column="55" />
-      <File FileName="Assets/Missile Fighter/Scripts/UI/TargetMarkers.cs" Line="11" Column="18" />
-      <File FileName="Assets/Missile Fighter/Scripts/Units/Enemy.cs" Line="24" Column="1" />
-      <File FileName="Assets/Missile Fighter/Scripts/Units/Player.cs" Line="17" Column="21" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/Fighter.cs" Line="91" Column="10" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/FighterController.cs" Line="15" Column="47" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/FighterStatementConstant.cs" Line="1" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/Waves/WaveManager.cs" Line="34" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/Waves/Wave.cs" Line="18" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/StageData/Units.cs" Line="26" Column="55" />
+      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="44" Column="28" />
+      <File FileName="Assets/Missile Fighter/Scripts/Units/Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnTargetState.cs" Line="15" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

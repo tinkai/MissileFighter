@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Units;
 
 namespace Fighters
 {
     public class LockOnTargetState
     {
         // 敵オブジェクト
-        public GameObject Target;
+        public Enemy Target;
 
         // プレイヤーから見えているか
         public bool IsVisible;
@@ -20,7 +21,7 @@ namespace Fighters
 
 
         // コンストラクタ
-        public LockOnTargetState(GameObject target)
+        public LockOnTargetState(Enemy target)
         {
             Target = target;
         }

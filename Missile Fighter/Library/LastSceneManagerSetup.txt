@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Missile Fighter/Scenes/Flight Scene.unity
+- path: Assets/Missile Fighter/Scenes/Battle Scene.unity
   isLoaded: 1
   isActive: 1

@@ -25,9 +25,6 @@ namespace Missiles
         // ミサイルの速度
         [SerializeField] private float speed = 400.0f;
 
-        // ミサイルの敵への誘導率
-        [SerializeField] private float inductionRate = 0.1f;
-
         // ミサイルの生存時間
         [SerializeField] private float survivalTime = 10.0f;
 
@@ -37,6 +34,9 @@ namespace Missiles
         {
             get { return lockOnTime; }
         }
+
+        // ミサイルの敵への誘導率
+        [SerializeField] private float inductionRate = 0.1f;
 
         // ミサイルの爆発エフェクト
         [SerializeField] private GameObject explosionEffect;
@@ -74,10 +74,11 @@ namespace Missiles
             // ターゲットがいない場合 || アクティブではない
             if (target == null || target.gameObject.activeInHierarchy == false) { return; }
 
+
             // 自分自身からターゲットを見た方向を取得
             Quaternion targetDirection = Quaternion.LookRotation(target.position - transform.position);
             // 自分の向いている方向からターゲット方向へ誘導率だけ向く
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, inductionRate);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, Random.Range(0.05f, inductionRate));
         }
 
         // 衝突判定

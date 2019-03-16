@@ -168,11 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
-  inductionRate: 0.1
   survivalTime: 10
-  shotForce: 10
   lockOnTime: 3
-  guidDelayTime: 0.5
+  inductionRate: 0.2
   explosionEffect: {fileID: 814246500, guid: 62402771d89a74a47996378910737ccf, type: 3}
 --- !u!136 &3288645924856590091
 CapsuleCollider:

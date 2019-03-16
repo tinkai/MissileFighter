@@ -74,6 +74,8 @@
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarkers.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Waves\Wave.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Waves\WaveManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

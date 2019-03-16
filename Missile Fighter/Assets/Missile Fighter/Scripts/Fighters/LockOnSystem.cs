@@ -28,9 +28,9 @@ namespace Fighters
         private void Start()
         {
             targetStateList = new List<LockOnTargetState>();
-            List<GameObject> enemys = StageData.Units.Instance.Enemys;
+            Enemy[] enemys = StageData.Units.Instance.WaveManager.GetCurrentWave().Enemys;
 
-            foreach (GameObject enemy in enemys)
+            foreach (Enemy enemy in enemys)
             {
                 targetStateList.Add(new LockOnTargetState(enemy));
             }
@@ -41,6 +41,19 @@ namespace Fighters
             LockOnProcess();
         }
 
+        // エネミーリストを更新するメソッド
+        public void UpdateEnemyList()
+        {
+            targetStateList.Clear();
+
+            Enemy[] enemys = StageData.Units.Instance.WaveManager.GetCurrentWave().Enemys;
+
+            foreach (Enemy enemy in enemys)
+            {
+                targetStateList.Add(new LockOnTargetState(enemy));
+            }
+        }
+
         // ロックオンしているターゲットリストを返す
         public List<GameObject> GetLockOnTargetList()
         {
@@ -49,7 +62,7 @@ namespace Fighters
             {
                 if (targetState.IsLockOn)
                 {
-                    lockOnTargetList.Add(targetState.Target);
+                    lockOnTargetList.Add(targetState.Target.gameObject);
                 }
             }
             return lockOnTargetList;
@@ -58,9 +71,6 @@ namespace Fighters
         // ロックオン処理
         private void LockOnProcess()
         {
-            // 敵がいない場合は、何もしない
-            if (StageData.Units.Instance.Enemys.Count == 0) { return; }
-
             // 全ての敵を調査
             foreach (LockOnTargetState targetState in targetStateList)
             {
