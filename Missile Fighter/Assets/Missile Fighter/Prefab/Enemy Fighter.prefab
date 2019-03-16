@@ -4916,7 +4916,6 @@ MonoBehaviour:
   missilePrefab: {fileID: 8474778418824805618, guid: 0c825126f41f2384fa3f2d22386633fc,
     type: 3}
   shotDelay: 0.25
-  lockOnSystem: {fileID: 0}
 --- !u!1 &556933828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,8 +5395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a404a30b97c8034f89dee0726e72d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boosters:
-  - {fileID: 167419089}
   normalStateEffectScale: {x: 0.6, y: 0.6, z: 0.6}
   accelerationStateEffectScale: {x: 1, y: 1, z: 1}
   brakeStateEffectScale: {x: 0.1, y: 0.1, z: 0.1}
@@ -10208,7 +10205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592720e44657e9840a24ab1c9ced0efe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fighter: {fileID: 1603409351789623068}
 --- !u!114 &1603409351789623068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10221,12 +10217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80507e2315535ad4abd87a1856ef0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeedAcceleration: 150
-  acceleration: 300
+  normalSpeedAcceleration: 100
+  acceleration: 150
   rollingForce: 5
-  risingForce: 3
+  risingForce: 2.5
   fallingForce: 1
   yawingForce: 0.75
-  boosters: {fileID: 1330161632}
-  missilePods: {fileID: 376314342}
   explosionEffect: {fileID: 231792698, guid: 76cd86f5ad5cca840adbfee415284a36, type: 3}

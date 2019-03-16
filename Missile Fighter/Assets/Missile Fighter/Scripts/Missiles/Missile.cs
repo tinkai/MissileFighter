@@ -23,20 +23,26 @@ namespace MissileFighter.Missiles
         }
 
         // ミサイルの速度
-        [SerializeField] private float speed = 400.0f;
+        [SerializeField] private float speed = 200.0f;
 
         // ミサイルの生存時間
         [SerializeField] private float survivalTime = 10.0f;
 
         // ミサイルのロックオン時間
-        [SerializeField] private float lockOnTime = 5.0f;
+        [SerializeField] private float lockOnTime = 3.0f;
         public float LockOnTime
         {
             get { return lockOnTime; }
         }
 
-        // ミサイルの敵への誘導率
-        [SerializeField] private float inductionRate = 0.1f;
+        // ミサイルの敵への誘導の強さ
+        [SerializeField] private float inductionForce = 1.0f;
+
+        // ゆらぎの確率
+        [SerializeField] private int blurRate = 5;
+
+        // ゆらぎの強さ
+        [SerializeField] private float blurForce = 20;
 
         // ミサイルの爆発エフェクト
         [SerializeField] private GameObject explosionEffect;
@@ -45,7 +51,7 @@ namespace MissileFighter.Missiles
 
         private void Awake()
         {
-            missilebody = gameObject.GetComponent<Rigidbody>();
+            missilebody = GetComponent<Rigidbody>();
 
             fighter = GameObject.FindWithTag("Player");
             // 機体速度と同速で下に射出
@@ -75,17 +81,26 @@ namespace MissileFighter.Missiles
             // ターゲットがいない場合 || アクティブではない
             if (target == null || target.gameObject.activeInHierarchy == false) { return; }
 
+            // 確率によって揺らぎを起こす
+            if (Random.Range(0, 100) < blurRate)
+            {
+                missilebody.AddTorque(new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * blurForce);
+                return;
+            }
 
+            // 相手に誘導
             // 自分自身からターゲットを見た方向を取得
             Quaternion targetDirection = Quaternion.LookRotation(target.position - transform.position);
-            // 自分の向いている方向からターゲット方向へ誘導率だけ向く
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, Random.Range(0.05f, inductionRate));
+            // 自分の回転している分を考慮するためにInverseをかける????    // 勉強する
+            Quaternion q = targetDirection * Quaternion.Inverse(transform.rotation);
+            // 敵方向に誘導率分強く向く
+            missilebody.AddTorque(new Vector3(q.x, q.y, q.z) * inductionForce);
         }
 
         // 衝突判定
         private void OnTriggerEnter(Collider other)
         {
-
+            // 打った本人と武器はぶつからない
             if (other.tag == fighter.tag || other.tag == (fighter.tag + " Weapon")) { return; }
             Explosion();
         }

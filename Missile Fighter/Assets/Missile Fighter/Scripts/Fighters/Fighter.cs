@@ -20,14 +20,14 @@ namespace MissileFighter.Fighters
         }
 
         // 通常速度を保つための加速力
-        [SerializeField] private float normalSpeedAcceleration = 150.0f;
+        [SerializeField] private float normalSpeedAcceleration = 100.0f;
 
         // アクセルしたときの加速力
-        [SerializeField] private float acceleration = 300.0f;
+        [SerializeField] private float acceleration = 150.0f;
 
         // 旋回・上昇・下降・ヨーに対する力
         [SerializeField] private float rollingForce = 5.0f;
-        [SerializeField] private float risingForce = 3.0f;
+        [SerializeField] private float risingForce = 2.5f;
         [SerializeField] private float fallingForce = 1.0f;
         [SerializeField] private float yawingForce = 0.75f;
 

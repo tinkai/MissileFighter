@@ -167,10 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54c35eecaff76f4ab7d46fd7e04945f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
+  speed: 200
   survivalTime: 10
-  lockOnTime: 3
-  inductionRate: 0.2
+  lockOnTime: 1
+  inductionRate: 10
+  blurRate: 5
+  blurForce: 20
   explosionEffect: {fileID: 814246500, guid: 62402771d89a74a47996378910737ccf, type: 3}
 --- !u!136 &3288645924856590091
 CapsuleCollider:

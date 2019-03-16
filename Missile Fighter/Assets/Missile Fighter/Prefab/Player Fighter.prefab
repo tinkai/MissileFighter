@@ -19147,7 +19147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137e66207d5b940459dcde7871238523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fighter: {fileID: 0}
 --- !u!114 &7671097707414706831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19161,14 +19160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80507e2315535ad4abd87a1856ef0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeedAcceleration: 150
-  acceleration: 300
+  normalSpeedAcceleration: 100
+  acceleration: 150
   rollingForce: 5
-  risingForce: 3
+  risingForce: 2.5
   fallingForce: 1
   yawingForce: 0.75
-  boosters: {fileID: 7671097707491176758}
-  missilePods: {fileID: 7671097708274053026}
   explosionEffect: {fileID: 231792698, guid: 76cd86f5ad5cca840adbfee415284a36, type: 3}
 --- !u!114 &7671097707414706830
 MonoBehaviour:
@@ -19183,7 +19180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaebee7c29990884da79ee962b87ac97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fighter: {fileID: 7671097707414706831}
 --- !u!114 &7671097707414706829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19264,10 +19260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a404a30b97c8034f89dee0726e72d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boosters:
-  - {fileID: 7671097706916675078}
-  - {fileID: 7671097707536279547}
-  - {fileID: 7671097706770552219}
   normalStateEffectScale: {x: 0.6, y: 0.6, z: 0.6}
   accelerationStateEffectScale: {x: 1, y: 1, z: 1}
   brakeStateEffectScale: {x: 0.1, y: 0.1, z: 0.1}
@@ -29071,4 +29063,3 @@ MonoBehaviour:
   missilePrefab: {fileID: 8474778418824805618, guid: 0c825126f41f2384fa3f2d22386633fc,
     type: 3}
   shotDelay: 0.25
-  lockOnSystem: {fileID: 7671097707414706828}
