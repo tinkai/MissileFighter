@@ -7,9 +7,13 @@ namespace MissileFighter.SceneManagers
 {
     public class TitleSceneManager : MonoBehaviour
     {
-        public void StartButton()
+        private void Update()
         {
-            SceneManager.LoadScene("Battle Scene");
+            // スペースを押したらバトルシーンへ
+            if (Input.GetKey(KeyCode.Space))
+            {
+                SceneManager.LoadScene("Battle Scene");
+            }
         }
     }
 }
