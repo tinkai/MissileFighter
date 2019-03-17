@@ -67,14 +67,11 @@ namespace MissileFighter.Fighters
             {
                 case FighterStatementConstant.ACCELERATION:
                     Acceleration();
-                    boosters.ChangeEffect(FighterStatementConstant.ACCELERATION);
                     break;
                 case FighterStatementConstant.BRAKE:
-                    boosters.ChangeEffect(FighterStatementConstant.BRAKE);
                     break;
                 default:
                     NormalSpeed();
-                    boosters.ChangeEffect(FighterStatementConstant.NORMAL);
                     break;
             }
         }

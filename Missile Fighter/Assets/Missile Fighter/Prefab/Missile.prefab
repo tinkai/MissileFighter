@@ -60,8 +60,8 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8474778418824805618}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   speed: 200
   survivalTime: 10
   lockOnTime: 1
-  inductionRate: 10
+  inductionForce: 10
   blurRate: 5
   blurForce: 20
   explosionEffect: {fileID: 814246500, guid: 62402771d89a74a47996378910737ccf, type: 3}

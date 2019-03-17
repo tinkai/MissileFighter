@@ -19,11 +19,14 @@ namespace MissileFighter.Fighters
         // ロックオンシステム
         private LockOnSystem lockOnSystem;
 
+        private AudioSource shotSound;
+
         //***********************************************************
 
         private void Start()
         {
             lockOnSystem = GetComponentInParent<LockOnSystem>();
+            shotSound = GetComponent<AudioSource>();
         }
 
         // 全てのミサイルポッドからミサイルを打つメソッド
@@ -33,6 +36,8 @@ namespace MissileFighter.Fighters
             {
                 return;
             }
+
+            shotSound.PlayOneShot(shotSound.clip);  // 発射音
 
             // ロックオンされているターゲットリストを取得
             List<GameObject> targetList = lockOnSystem.GetLockOnTargetList();
