@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Fighters;
+using MissileFighter.GlobalStageDatas;
 
 namespace MissileFighter.Units
 {
@@ -37,6 +38,7 @@ namespace MissileFighter.Units
         void Dead()
         {
             isDead = true;
+            Score.Kills++;
             fighter.Explosion();
             gameObject.SetActive(false);    // 表示を消す
         }

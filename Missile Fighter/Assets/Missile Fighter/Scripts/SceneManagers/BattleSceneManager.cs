@@ -12,11 +12,11 @@ namespace MissileFighter.SceneManagers
         {
             if (GlobalStageData.Instance.Player.IsDead)
             {
-                SceneManager.LoadScene("Game Over Scene");
+                SceneManager.LoadScene("Score Scene");
             }
             else if (GlobalStageData.Instance.WaveManager.IsEndWave())
             {
-                SceneManager.LoadScene("Game Clear Scene");
+                SceneManager.LoadScene("Score Scene");
             }
         }
     }

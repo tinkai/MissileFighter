@@ -36,13 +36,13 @@ namespace MissileFighter.Missiles
         }
 
         // ミサイルの敵への誘導の強さ
-        [SerializeField] private float inductionForce = 1.0f;
+        [SerializeField] private float inductionForce = 10.0f;
 
         // ゆらぎの確率
         [SerializeField] private int blurRate = 5;
 
         // ゆらぎの強さ
-        [SerializeField] private float blurForce = 20;
+        [SerializeField] private float blurForce = 20.0f;
 
         // ミサイルの爆発エフェクト
         [SerializeField] private GameObject explosionEffect;

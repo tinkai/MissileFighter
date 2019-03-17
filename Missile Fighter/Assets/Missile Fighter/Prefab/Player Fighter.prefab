@@ -19264,8 +19264,8 @@ MonoBehaviour:
   normalStateEffectScale: {x: 0.6, y: 0.6, z: 0.6}
   accelerationStateEffectScale: {x: 1, y: 1, z: 1}
   brakeStateEffectScale: {x: 0.1, y: 0.1, z: 0.1}
-  normalVolume: 0.6
-  brakeVolume: 0.3
+  normalVolume: 0.5
+  brakeVolume: 0.25
   accelerationVolume: 1
 --- !u!82 &3715066252376253842
 AudioSource:
