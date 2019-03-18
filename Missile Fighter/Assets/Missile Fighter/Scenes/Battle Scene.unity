@@ -2073,6 +2073,11 @@ PrefabInstance:
       propertyPath: lockOnDistance
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 7671097707414706828, guid: 8468d011a0bcf2a49b7c996beeed6256,
+        type: 3}
+      propertyPath: lockOnCircle
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7671097707414706831, guid: 8468d011a0bcf2a49b7c996beeed6256,
         type: 3}
       propertyPath: normalSpeedAcceleration

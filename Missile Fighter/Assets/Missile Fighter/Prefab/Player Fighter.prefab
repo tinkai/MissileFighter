@@ -19160,6 +19160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80507e2315535ad4abd87a1856ef0fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 1
   normalSpeedAcceleration: 100
   acceleration: 150
   rollingForce: 5
@@ -19209,7 +19210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 8474778418824805619, guid: 0c825126f41f2384fa3f2d22386633fc, type: 3}
-  lockOnCircle: 150
+  lockOnCircle: 0.25
   lockOnDistance: 1500
 --- !u!1 &7671097707491176757
 GameObject:

@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 348}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 105
+  controlID: 106
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 348}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 106
+  controlID: 107
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 0, y: 52.346127, z: 1002.5}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0.20930028}
+    m_Value: {x: 0, y: 52.346127, z: 1002.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -419,11 +419,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.061887953, y: -0.8909332, z: 0.12782423, w: 0.43135706}
     speed: 2
-    m_Value: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+    m_Value: {x: 0.061887953, y: -0.8909332, z: 0.12782423, w: 0.43135706}
   m_Size:
     m_Target: 3314.5562
     speed: 2
-    m_Value: 4.766001
+    m_Value: 3314.5562
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -542,9 +542,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40f9ffff
-      m_LastClickedID: -1728
-      m_ExpandedIDs: d4fbffff4434000054340000
+      m_SelectedIDs: 642a0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: aef5ffffccf5ffffd4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -606,7 +606,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Missile Fighter/Prefab
+    - Assets/Missile Fighter/Scenes
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -643,7 +643,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 133}
+    scrollPos: {x: 0, y: 197}
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: ffffffff00000000ce27000058290000da290000a82a0000342b0000462c00005c2c0000862c0000b62c0000282e0000782e00001a2f0000382f00009a2f0000d82f000014300000563000004e36000050360000523600005436000056360000583600005a3600005c3600005e36000060360000623600006436000066360000683600006a3600006c360000
@@ -662,7 +662,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 10}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}

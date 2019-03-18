@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1440
     height: 805
-  m_MinSize: {x: 917, y: 348}
-  m_MaxSize: {x: 22012, y: 10024}
+  m_MinSize: {x: 913, y: 348}
+  m_MaxSize: {x: 22008, y: 10024}
   vertical: 0
-  controlID: 3857
+  controlID: 2106
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 348}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 3825
+  controlID: 2074
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,8 +151,8 @@ MonoBehaviour:
     y: 0
     width: 722
     height: 414
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 5}
@@ -188,14 +188,14 @@ MonoBehaviour:
     height: 394
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: a5bebd4c11972d14a9da18c0b472fd86
-  m_SceneLighting: 0
+  m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 1
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0.20930028}
+    m_Target: {x: 0, y: 52.346127, z: 1002.5}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0.20930028}
+    m_Value: {x: 0, y: 52.346127, z: 1002.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -223,13 +223,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+    m_Target: {x: 0.061887953, y: -0.8909332, z: 0.12782423, w: 0.43135706}
     speed: 2
-    m_Value: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+    m_Value: {x: 0.061887953, y: -0.8909332, z: 0.12782423, w: 0.43135706}
   m_Size:
-    m_Target: 4.766001
+    m_Target: 3314.5562
     speed: 2
-    m_Value: 4.766001
+    m_Value: 3314.5562
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -402,7 +402,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c2790000
+      m_ExpandedIDs: d4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -490,7 +490,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Missile Fighter/Prefab
+    - Assets/Missile Fighter/Scripts/Fighters
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -502,7 +502,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 042e0000
     m_LastClickedID: 11780
-    m_ExpandedIDs: ffffffff00000000cc27000056290000d8290000a62a0000322b0000442c00005a2c0000842c0000b42c0000262e0000182f0000982f0000d62f000012300000543000004436000046360000483600004a3600004c3600004e36000050360000523600005436000056360000583600005a3600005c3600005e3600006036000062360000
+    m_ExpandedIDs: ffffffff00000000ce27000058290000da290000a82a0000342b0000462c00005c2c0000862c0000b62c0000282e0000782e00001a2f0000382f00009a2f0000d82f000014300000563000004e36000050360000523600005436000056360000583600005a3600005c3600005e36000060360000623600006436000066360000683600006a3600006c360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -527,10 +527,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 5}
-    m_SelectedIDs: c2790000
-    m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000cc27000056290000d8290000a62a0000322b0000442c00005a2c0000842c0000b42c0000262e0000182f0000982f0000d62f000012300000543000004436000046360000483600004a3600004c3600004e36000050360000523600005436000056360000583600005a3600005c3600005e3600006036000062360000
+    scrollPos: {x: 0, y: 197}
+    m_SelectedIDs: 42220000
+    m_LastClickedID: 8770
+    m_ExpandedIDs: ffffffff00000000ce27000058290000da290000a82a0000342b0000462c00005c2c0000862c0000b62c0000282e0000782e00001a2f0000382f00009a2f0000d82f000014300000563000004e36000050360000523600005436000056360000583600005a3600005c3600005e36000060360000623600006436000066360000683600006a3600006c360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -555,8 +555,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c2790000
-    m_LastClickedInstanceID: 31170
+    m_SelectedInstanceIDs: 42220000
+    m_LastClickedInstanceID: 8770
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:

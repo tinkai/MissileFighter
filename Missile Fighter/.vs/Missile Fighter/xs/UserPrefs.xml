@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{049A1624-2532-6942-6399-A9475B63540B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Fighters/Fighter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs">
     <Files>
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="81" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="26" Column="61" />
       <File FileName="Assets/Missile Fighter/Scripts/Units/Enemy.cs" Line="20" Column="1" />
       <File FileName="Assets/Missile Fighter/Scripts/Units/Player.cs" Line="14" Column="9" />
       <File FileName="Assets/Missile Fighter/Scripts/Fighters/Fighter.cs" Line="157" Column="25" />

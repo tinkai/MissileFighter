@@ -19,11 +19,11 @@ namespace MissileFighter.Fighters
         // ミサイル武装
         [SerializeField] private Missile missile;
 
-        // ロックオン範囲
-        [SerializeField] private float lockOnCircle = 150.0f;
+        // ロックオン範囲 画面の長さが1の大きさ
+        [SerializeField] private float lockOnCircle = 0.25f;
 
         // ロックオン最大距離
-        [SerializeField] private float lockOnDistance = 5000.0f;
+        [SerializeField] private float lockOnDistance = 1500.0f;
 
         //***********************************************************
 
@@ -87,16 +87,16 @@ namespace MissileFighter.Fighters
                 {
                     targetState.IsVisible = true;   // 見えている
 
-                    // カメラ座標に変換
-                    Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, targetState.Target.transform.position);
-                    screenPoint.x -= (Screen.width / 2);
-                    screenPoint.y -= (Screen.height / 2);
+                    // カメラ中心からの距離
+                    Vector2 screenPoint = Camera.main.WorldToViewportPoint(targetState.Target.transform.position);                     screenPoint.x -= 0.5f;
+                    screenPoint.x *= 1.5f;  // ロックオンの円をy軸と同じ長さくらいに 16:9の時だけ？ 16 / 9 = 1.77...じゃない？                     screenPoint.y -= 0.6f;
+                    float screenDistance = Mathf.Sqrt(Mathf.Pow(screenPoint.x, 2) + Mathf.Pow(screenPoint.y, 2));
 
                     // 敵と自分の距離
                     float distance = Vector3.Distance(gameObject.transform.position, targetState.Target.transform.position);
 
                     // ロックオンサークル内 && ロックオン射程内 の場合
-                    if (screenPoint.magnitude <= lockOnCircle && distance <= lockOnDistance)
+                    if (screenDistance <= lockOnCircle && distance <= lockOnDistance)
                     {
                         targetState.LockOnElapsedTime += Time.deltaTime;
 
