@@ -25,6 +25,13 @@ namespace MissileFighter.Missiles
         // ミサイルの速度
         [SerializeField] private float speed = 200.0f;
 
+        // ミサイルの攻撃力
+        [SerializeField] private int damagePower = 1;
+        public int DamagePower
+        {
+            get { return damagePower; }
+        }
+
         // ミサイルの生存時間
         [SerializeField] private float survivalTime = 10.0f;
 

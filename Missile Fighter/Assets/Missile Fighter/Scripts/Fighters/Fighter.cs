@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MissileFighter.Missiles;
+using MissileFighter.GlobalStageDatas;
 
 namespace MissileFighter.Fighters
 {
@@ -10,6 +12,20 @@ namespace MissileFighter.Fighters
     {
         // 機体を制御するリキッドボディ
         private Rigidbody fighterbody;
+
+        // 機体の体力
+        [SerializeField] private int hp = 1;
+        public int Hp
+        {
+            get { return hp; }
+        }
+
+        // 死んだか
+        private bool isDead;
+        public bool IsDead
+        {
+            get { return isDead; }
+        }
 
         // 機体の加速状態を表す変数
         private int accelerationStatement = FighterStatementConstant.NORMAL;
@@ -124,6 +140,48 @@ namespace MissileFighter.Fighters
             else if (direction == FighterDirectionConstant.RIGHT)
             {
                 fighterbody.AddTorque(transform.up * yawingForce);
+            }
+        }
+
+        // 衝突処理
+        private void OnTriggerEnter(Collider other)
+        {
+            // 自分自身の武器なら終了
+            if (other.tag == tag + " Weapon") { return; }
+
+            // ミサイルならダメージ
+            if (other.gameObject.GetComponent<Missile>() != null)
+            {
+                Damage(other.gameObject.GetComponent<Missile>().DamagePower);
+            } 
+            // 機体ならそのHP分
+            else if (other.gameObject.GetComponent<Fighter>() != null)
+            {
+                Damage(other.gameObject.GetComponent<Fighter>().Hp);
+            }
+
+            if (hp <= 0)
+            {
+                Dead();
+            }
+        }
+
+        // hpを減らすメソッド
+        public void Damage(int damage)
+        {
+            hp -= damage;
+        }
+
+        // 死亡処理
+        void Dead()
+        {
+            isDead = true;
+            Explosion();
+            gameObject.SetActive(false);    // 表示を消す
+
+            if (tag == "Enemy")
+            {
+                Score.Kills++;
             }
         }
 

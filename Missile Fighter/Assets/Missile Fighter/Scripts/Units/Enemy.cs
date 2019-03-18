@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Fighters;
 using MissileFighter.GlobalStageDatas;
+using MissileFighter.Missiles;
 
 namespace MissileFighter.Units
 {
@@ -12,35 +13,20 @@ namespace MissileFighter.Units
     {
         // 機体
         private Fighter fighter;
-
-        // 死んだか
-        private bool isDead;
-        public bool IsDead
+        public Fighter Fighter
         {
-            get { return isDead; }
+            get { return fighter; }
         }
+
+        // プレイヤー
+        private Player player;
 
         //***********************************************************
 
         private void Start()
         {
             fighter = GetComponent<Fighter>();
-        }
-
-        // 衝突処理
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == "Enemy Weapon") { return; }
-            Dead();
-        }
-
-        // 死亡処理
-        void Dead()
-        {
-            isDead = true;
-            Score.Kills++;
-            fighter.Explosion();
-            gameObject.SetActive(false);    // 表示を消す
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
     }
 }

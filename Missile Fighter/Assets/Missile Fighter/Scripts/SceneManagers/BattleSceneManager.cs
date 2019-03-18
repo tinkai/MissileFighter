@@ -10,7 +10,13 @@ namespace MissileFighter.SceneManagers
     {
         private void Update()
         {
-            if (GlobalStageData.Instance.Player.IsDead)
+            // エスケープで終了
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+
+            if (GlobalStageData.Instance.Player.Fighter.IsDead)
             {
                 SceneManager.LoadScene("Score Scene");
             }

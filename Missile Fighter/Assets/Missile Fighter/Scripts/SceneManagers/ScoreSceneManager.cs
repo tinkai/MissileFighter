@@ -28,6 +28,12 @@ namespace MissileFighter.SceneManagers
 
         private void Update()
         {
+            // エスケープで終了
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+
             // スペースを押したらバトルシーンへ
             if (Input.GetKey(KeyCode.Space))
             {

@@ -395,6 +395,11 @@ PrefabInstance:
       propertyPath: normalSpeedAcceleration
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623068, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: hp
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed51c6f551971824f8b72b926fea5ffe, type: 3}
 --- !u!1001 &305069226
@@ -925,6 +930,11 @@ PrefabInstance:
       propertyPath: normalSpeedAcceleration
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623068, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: hp
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed51c6f551971824f8b72b926fea5ffe, type: 3}
 --- !u!4 &1137010683 stripped
@@ -1075,6 +1085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: normalSpeedAcceleration
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623068, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: hp
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed51c6f551971824f8b72b926fea5ffe, type: 3}
@@ -1868,6 +1883,11 @@ PrefabInstance:
       propertyPath: normalSpeedAcceleration
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623068, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: hp
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed51c6f551971824f8b72b926fea5ffe, type: 3}
 --- !u!1 &2136217127
@@ -1957,7 +1977,7 @@ PrefabInstance:
     - target: {fileID: 1603409351789623059, guid: ed51c6f551971824f8b72b926fea5ffe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1603409351789623059, guid: ed51c6f551971824f8b72b926fea5ffe,
         type: 3}
@@ -2018,6 +2038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: normalSpeedAcceleration
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603409351789623068, guid: ed51c6f551971824f8b72b926fea5ffe,
+        type: 3}
+      propertyPath: hp
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 84940704704036098, guid: ed51c6f551971824f8b72b926fea5ffe,
         type: 3}

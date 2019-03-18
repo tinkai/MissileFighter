@@ -81,7 +81,7 @@ namespace MissileFighter.Fighters
                 // 敵が死んでいない
                 // && カメラに表示されている場合 ※シーンビューも含まれるので注意
                 // && 敵との間に障害物がない場合
-                if (targetState.Target.GetComponent<Enemy>().IsDead == false
+                if (targetState.Target.GetComponent<Enemy>().Fighter.IsDead == false
                     && targetState.Target.GetComponent<Renderer>().isVisible 
                     && Physics.Linecast(transform.position, targetState.Target.transform.position, LayerMask.GetMask("Field")) == false)
                 {

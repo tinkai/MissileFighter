@@ -58,7 +58,7 @@ namespace MissileFighter.Waves
         {
             foreach (Enemy enemy in waves[currentWave].Enemys)
             {
-                if (enemy.IsDead == false)
+                if (enemy.Fighter.IsDead == false)
                 {
                     return false;
                 }
