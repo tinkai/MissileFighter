@@ -22,8 +22,11 @@ namespace MissileFighter.UI
         private void Update()
         {
             kills.text = Score.Kills.ToString();
-            int seconds = Score.GetSecondsSurvivalTime();
-            survivalTime.text = seconds / 60 + ":" + seconds % 60;
+
+            int time = Score.GetSecondsSurvivalTime();
+            string minutes = (time / 60).ToString("D2");
+            string seconds = (time % 60).ToString("D2");
+            survivalTime.text = minutes + ":" + seconds;
         }
     }
 }

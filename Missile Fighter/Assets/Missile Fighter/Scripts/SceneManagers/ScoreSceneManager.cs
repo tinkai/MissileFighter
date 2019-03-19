@@ -19,8 +19,8 @@ namespace MissileFighter.SceneManagers
             kills.text = Score.Kills.ToString();
 
             int time = Score.GetSecondsSurvivalTime();
-            int minutes = time / 60;
-            int seconds = time % 60;
+            string minutes = (time / 60).ToString("D2");
+            string seconds = (time % 60).ToString("D2");
             survivalTime.text = minutes + ":" + seconds;
 
             total.text = Score.CalcTotalScore().ToString();
