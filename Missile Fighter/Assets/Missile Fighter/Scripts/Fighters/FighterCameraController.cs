@@ -6,19 +6,51 @@ namespace MissileFighter.Fighters
 {
     public class FighterCameraController : MonoBehaviour
     {
-        // カメラオブジェクト
-        [SerializeField] private GameObject thirdPersonCamera;  // 通常視点
-        [SerializeField] private GameObject firstPersonCamera;
+        // 戦闘用のカメラオブジェクト
+        [SerializeField] private GameObject[] cameras;
+
+        // 現在の戦闘カメラ番号
+        private int currentCamera = 0;
+
+        // 後ろを向くカメラ
+        [SerializeField] private GameObject backCamera;
 
         //***********************************************************
 
+        private void Start()
+        {
+        }
+
         private void Update()
         {
+            // 戦闘用カメラ変更
             if (Input.GetKeyDown(KeyCode.LeftAlt))
             {
-                // 現在のactive状態から反転 
-                thirdPersonCamera.SetActive(!thirdPersonCamera.activeInHierarchy);
-                firstPersonCamera.SetActive(!firstPersonCamera.activeInHierarchy);
+                // 現在のカメラを移動
+                currentCamera = (currentCamera + 1) % cameras.Length;
+                for (int i = 0; i < cameras.Length; i++)
+                {
+                    if (i == currentCamera)
+                    {
+                        cameras[i].SetActive(true);
+                    }
+                    else
+                    {
+                        cameras[i].SetActive(false);
+                    }
+                }
+            }
+
+            // バックカメラ変更
+            if (Input.GetKey(KeyCode.B))
+            {
+                backCamera.SetActive(true);
+                cameras[currentCamera].SetActive(false);
+            }
+            else
+            {
+                cameras[currentCamera].SetActive(true);
+                backCamera.SetActive(false);
             }
         }
     }

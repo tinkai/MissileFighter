@@ -7,11 +7,8 @@ namespace MissileFighter.Fighters
 {
     public class LockOnTargetState
     {
-        // 敵オブジェクト
-        public Enemy Target;
-
-        // プレイヤーから見えているか
-        public bool IsVisible;
+        // ロックオンファイター
+        public Fighter Target;
 
         // ロックオン開始してからの時間
         public float LockOnElapsedTime = 0;
@@ -22,7 +19,7 @@ namespace MissileFighter.Fighters
         //***********************************************************
 
         // コンストラクタ
-        public LockOnTargetState(Enemy target)
+        public LockOnTargetState(Fighter target)
         {
             Target = target;
         }

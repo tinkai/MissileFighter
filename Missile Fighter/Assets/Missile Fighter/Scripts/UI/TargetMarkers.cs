@@ -39,7 +39,8 @@ namespace MissileFighter.UI
             List<LockOnTargetState> visibleTargetStateList = new List<LockOnTargetState>();
             foreach (LockOnTargetState targetState in lockOnSystem.TargetStateList)
             {
-                if (targetState.IsVisible)
+                // カメラに表示されているか     ※ シーンカメラも含まれるので注意
+                if (targetState.Target.GetComponent<Renderer>().isVisible)
                 {
                     visibleTargetStateList.Add(targetState);
                 }

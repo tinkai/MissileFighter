@@ -28,5 +28,10 @@ namespace MissileFighter.Units
             fighter = GetComponent<Fighter>();
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
+
+        private void Update()
+        {
+            fighter.MissilePods.ShotMissile();
+        }
     }
 }

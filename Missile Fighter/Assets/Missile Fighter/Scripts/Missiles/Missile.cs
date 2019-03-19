@@ -10,7 +10,11 @@ namespace MissileFighter.Missiles
     public class Missile : MonoBehaviour
     {
         // ミサイルを打った戦闘機
-        private GameObject fighter;
+        private Fighter fighter;
+        public Fighter Fighter
+        {
+            set { fighter = value; }
+        }
 
         // ミサイルのリキッドボディ
         private Rigidbody missilebody;
@@ -60,7 +64,7 @@ namespace MissileFighter.Missiles
         {
             missilebody = GetComponent<Rigidbody>();
 
-            fighter = GameObject.FindWithTag("Player");
+            //fighter = GameObject.FindWithTag("Player");
             // 機体速度と同速で下に射出
             missilebody.velocity = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
         }
@@ -108,7 +112,7 @@ namespace MissileFighter.Missiles
         private void OnTriggerEnter(Collider other)
         {
             // 打った本人と武器はぶつからない
-            if (other.tag == fighter.tag || other.tag == (fighter.tag + " Weapon")) { return; }
+            if (other.tag == fighter.tag || other.tag == tag) { return; }
             Explosion();
         }
 

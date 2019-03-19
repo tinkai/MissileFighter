@@ -33,7 +33,7 @@ namespace MissileFighter.Waves
             {
                 GoToNextWave();
                 // プレイヤーのロックオンシステムのターゲットを更新
-                GlobalStageData.Instance.Player.GetComponent<LockOnSystem>().UpdateEnemyList();
+                GlobalStageData.Instance.Player.GetComponent<LockOnSystem>().UpdateTargetList();
             }
         }
 

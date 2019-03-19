@@ -19,6 +19,7 @@ namespace MissileFighter.Fighters
         // ロックオンシステム
         private LockOnSystem lockOnSystem;
 
+        // ミサイルの発射音
         private AudioSource shotSound;
 
         //***********************************************************
@@ -47,7 +48,9 @@ namespace MissileFighter.Fighters
             {
                 foreach (Transform pod in gameObject.transform)
                 {
-                    Instantiate(missilePrefab, pod.position, pod.rotation);
+                    GameObject missile = Instantiate(missilePrefab, pod.position, pod.rotation);
+                    missile.GetComponent<Missile>().Fighter = GetComponentInParent<Fighter>();
+
                 }
             } 
             // ロックオンしている場合は、ターゲット全てに打つ
@@ -58,6 +61,7 @@ namespace MissileFighter.Fighters
                     foreach (Transform pod in gameObject.transform)
                     {
                         GameObject missile = Instantiate(missilePrefab, pod.position, pod.rotation);
+                        missile.GetComponent<Missile>().Fighter = GetComponentInParent<Fighter>();
                         missile.GetComponent<Missile>().Target = target.transform;  // ターゲット設定
                     }
                 }
