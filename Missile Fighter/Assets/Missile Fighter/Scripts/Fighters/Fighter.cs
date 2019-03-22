@@ -12,6 +12,10 @@ namespace MissileFighter.Fighters
     {
         // 機体を制御するリキッドボディ
         private Rigidbody fighterbody;
+        public Rigidbody Fighterbody
+        {
+            get { return fighterbody; }
+        }
 
         // 機体の体力
         [SerializeField] private int hp = 1;

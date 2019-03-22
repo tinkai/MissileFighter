@@ -21,9 +21,17 @@ namespace MissileFighter.Fighters
 
         // ロックオン範囲 画面の長さが1の大きさ
         [SerializeField] private float lockOnAngle = 25.0f;
+        public float LockOnAngle
+        {
+            get { return lockOnAngle; }
+        }
 
         // ロックオン最大距離
         [SerializeField] private float lockOnDistance = 1500.0f;
+        public float LockOnDistance
+        {
+            get { return lockOnDistance; }
+        }
 
         //***********************************************************
 
