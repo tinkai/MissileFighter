@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8474778418824805619}
   - component: {fileID: 3288645924856590091}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: Player Missile
   m_TagString: Player Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7676224fee2108d4eaf4185efc6ef7fc, type: 2}
+  - {fileID: 2100000, guid: 7e29959a1d99046ec9f7bd163d14046f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

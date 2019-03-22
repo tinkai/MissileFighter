@@ -64,9 +64,11 @@ namespace MissileFighter.Missiles
         {
             missilebody = GetComponent<Rigidbody>();
 
-            //fighter = GameObject.FindWithTag("Player");
             // 機体速度と同速で下に射出
             missilebody.velocity = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
+
+            // 爆発するタイミングをずらす
+            survivalTime += Random.Range(-1.0f, 1.0f);
         }
 
         private void Update()
@@ -102,7 +104,9 @@ namespace MissileFighter.Missiles
             // 相手に誘導
             // 自分自身からターゲットを見た方向を取得
             Quaternion targetDirection = Quaternion.LookRotation(target.position - transform.position);
-            // 自分の回転している分を考慮するためにInverseをかける????    // 勉強する
+            // 軸を絶対値にする  <-- 一回転した時にバグるため
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, Mathf.Abs(transform.rotation.w));
+            // 自分の回転している分を考慮するためにInverseをかける
             Quaternion q = targetDirection * Quaternion.Inverse(transform.rotation);
             // 敵方向に誘導率分強く向く
             missilebody.AddTorque(new Vector3(q.x, q.y, q.z) * inductionForce);
