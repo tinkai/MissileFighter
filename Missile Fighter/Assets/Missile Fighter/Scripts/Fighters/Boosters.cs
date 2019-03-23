@@ -58,6 +58,7 @@ namespace MissileFighter.Fighters
         // エフェクトを現在の機体の加速状態に変更
         public void UpdateEffect()
         {
+            // 同じなら終了
             if (fighter.AccelerationStatement == statement) { return; }
 
             // 状態の更新

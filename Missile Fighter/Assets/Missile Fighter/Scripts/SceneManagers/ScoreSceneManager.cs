@@ -37,7 +37,7 @@ namespace MissileFighter.SceneManagers
             // スペースを押したらバトルシーンへ
             if (Input.GetKey(KeyCode.Space))
             {
-                SceneManager.LoadScene("Battle Scene");
+                SceneManager.LoadScene("Title Scene");
             }
         }
     }

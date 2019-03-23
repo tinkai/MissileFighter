@@ -22,5 +22,14 @@ namespace MissileFighter.Units
         {
             fighter = GetComponent<Fighter>();
         }
+
+        // 衝突判定
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag != "Enemy" && other.tag != "Enemy Weapon") { return; }
+
+            // 衝突処理を行う
+            fighter.CollisionObj(other.gameObject);
+        }
     }
 }

@@ -11,6 +11,9 @@ namespace MissileFighter.UI
         // プレイヤーのロックオンシステム
         private LockOnSystem lockOnSystem;
 
+        // プレイヤーのカメラコントローラ
+        private FighterCameraController cameraController;
+
         // マーカーのプレハブ
         [SerializeField] private GameObject targetMarkerPrefab;
 
@@ -26,6 +29,7 @@ namespace MissileFighter.UI
         private void Start()
         {
             lockOnSystem = GameObject.FindWithTag("Player").GetComponent<LockOnSystem>();
+            cameraController = GameObject.FindWithTag("Player").GetComponent<FighterCameraController>();
 
             markerList = new List<GameObject>();
 
@@ -68,7 +72,7 @@ namespace MissileFighter.UI
             for (int i = 0; i < visibleTargetStateList.Count; i++)
             {
                 // マーカーの画面上の位置を設定
-                Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, visibleTargetStateList[i].Target.transform.position);
+                Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(cameraController.GetCurrentCamera(), visibleTargetStateList[i].Target.transform.position);
                 markerList[i].transform.position = new Vector3(screenPosition.x, screenPosition.y, 0f);
 
                 // マーカーの色を設定

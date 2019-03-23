@@ -49,8 +49,8 @@ namespace MissileFighter.Units
                 transform.rotation = Quaternion.Slerp(transform.rotation, direction, turnForce);
             }
 
-            // ロックオン距離の半分よりもプレイヤーとの距離が離れているなら移動速度を最高速に
-            if (Vector3.Distance(transform.position, player.transform.position) > GetComponent<LockOnSystem>().LockOnDistance / 2)
+            // ロックオン距離のよりもプレイヤーとの距離が離れているなら移動速度を最高速に
+            if (Vector3.Distance(transform.position, player.transform.position) > GetComponent<LockOnSystem>().LockOnDistance)
             {
                 fighter.AccelerationStatement = FighterStatementConstant.ACCELERATION;
             }
@@ -64,6 +64,15 @@ namespace MissileFighter.Units
             {
                 fighter.MissilePods.ShotMissile();
             }
+        }
+
+        // 衝突判定
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag != "Player" && other.tag != "Player Weapon") { return; }
+
+            // 衝突処理を行う
+            fighter.CollisionObj(other.gameObject);
         }
     }
 }

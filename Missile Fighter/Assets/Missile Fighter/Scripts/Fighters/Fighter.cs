@@ -82,7 +82,6 @@ namespace MissileFighter.Fighters
         private void UpdateAcceleration()
         {
             // 状態によって加速するか減速か決定
-            // また、エフェクトも変更
             switch (accelerationStatement)
             {
                 case FighterStatementConstant.ACCELERATION:
@@ -148,20 +147,21 @@ namespace MissileFighter.Fighters
         }
 
         // 衝突処理
-        private void OnTriggerEnter(Collider other)
+        public void CollisionObj(GameObject obj)
         {
-            // 自分自身の武器なら終了
-            if (other.tag == tag + " Weapon") { return; }
-
             // ミサイルならダメージ
-            if (other.gameObject.GetComponent<Missile>() != null)
+            if (obj.GetComponent<Missile>() != null)
             {
-                Damage(other.gameObject.GetComponent<Missile>().DamagePower);
+                Damage(obj.GetComponent<Missile>().DamagePower);
             } 
             // 機体ならそのHP分
-            else if (other.gameObject.GetComponent<Fighter>() != null)
+            else if (obj.GetComponent<Fighter>() != null)
             {
-                Damage(other.gameObject.GetComponent<Fighter>().Hp);
+                Damage(obj.GetComponent<Fighter>().Hp);
+            } 
+            else if (obj.GetComponentInParent<Fighter>() != null)
+            {
+                Damage(obj.GetComponentInParent<Fighter>().Hp);
             }
 
             if (hp <= 0)

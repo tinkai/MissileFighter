@@ -17,10 +17,6 @@ namespace MissileFighter.Fighters
 
         //***********************************************************
 
-        private void Start()
-        {
-        }
-
         private void Update()
         {
             // 戦闘用カメラ変更
@@ -51,6 +47,18 @@ namespace MissileFighter.Fighters
             {
                 cameras[currentCamera].SetActive(true);
                 backCamera.SetActive(false);
+            }
+        }
+
+        public Camera GetCurrentCamera()
+        {
+            if (backCamera.activeInHierarchy)
+            {
+                return backCamera.GetComponent<Camera>();
+            }
+            else
+            {
+                return cameras[currentCamera].GetComponent<Camera>();
             }
         }
     }

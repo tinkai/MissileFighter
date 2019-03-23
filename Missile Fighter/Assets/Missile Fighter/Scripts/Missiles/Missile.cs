@@ -64,7 +64,7 @@ namespace MissileFighter.Missiles
         {
             missilebody = GetComponent<Rigidbody>();
 
-            // 機体速度と同速で下に射出
+            // 機体速度と同速で射出
             missilebody.velocity = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
 
             // 爆発するタイミングをずらす
