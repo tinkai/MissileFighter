@@ -69,8 +69,8 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\LockOnTargetState.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\MissilePods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\PlayerController.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\GlobalStageDatas\GlobalStageData.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\GlobalStageDatas\Score.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\Score.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\StageData.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Missiles\Missile.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\BattleSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\ScoreSceneManager.cs" />

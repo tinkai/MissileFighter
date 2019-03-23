@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MissileFighter.GlobalStageDatas;
+using MissileFighter.GlobalDatas;
 using MissileFighter.Units;
 using MissileFighter.Fighters;
 
@@ -32,14 +32,16 @@ namespace MissileFighter.Waves
             if (IsEndWave() == false && IsAllDeadEnemy())
             {
                 GoToNextWave();
+
                 // プレイヤーのロックオンシステムのターゲットを更新
-                GlobalStageData.Instance.Player.GetComponent<LockOnSystem>().UpdateTargetList();
+                StageData.Instance.Player.GetComponent<LockOnSystem>().UpdateTargetList();
             }
         }
 
         // 現在のウェーブを返す
         public Wave GetCurrentWave()
         {
+            if (IsEndWave()) { return null; }
             return waves[currentWave];
         }
 
@@ -71,6 +73,7 @@ namespace MissileFighter.Waves
         {
             waves[currentWave].gameObject.SetActive(false);
 
+            // 終了している場合
             if (++currentWave == waves.Length)
             {
                 return;

@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{049A1624-2532-6942-6399-A9475B63540B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Units/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/GlobalDatas/StageData.cs">
     <Files>
-      <File FileName="Assets/Missile Fighter/Scripts/UI/TargetMarkers.cs" Line="75" Column="117" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="26" Column="39" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/PlayerController.cs" Line="64" Column="17" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/FighterCameraController.cs" Line="18" Column="50" />
-      <File FileName="Assets/Missile Fighter/Scripts/Units/Enemy.cs" Line="50" Column="14" />
+      <File FileName="Assets/Missile Fighter/Scripts/SceneManagers/ScoreSceneManager.cs" Line="6" Column="28" />
+      <File FileName="Assets/Missile Fighter/Scripts/SceneManagers/BattleSceneManager.cs" Line="51" Column="50" />
+      <File FileName="Assets/Missile Fighter/Scripts/GlobalDatas/Score.cs" Line="5" Column="32" />
+      <File FileName="Assets/Missile Fighter/Scripts/UI/UiScore.cs" Line="30" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/GlobalDatas/StageData.cs" Line="15" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

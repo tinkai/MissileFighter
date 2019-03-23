@@ -2,31 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MissileFighter.GlobalStageDatas;
+using MissileFighter.GlobalDatas;
 
 namespace MissileFighter.UI
 {
     public class UiScore : MonoBehaviour
     {
         [SerializeField] private Text kills;
-        [SerializeField] private Text survivalTime;
+        [SerializeField] private Text remainingTime;
 
         //*********************************************************
 
         private void Start()
         {
             kills.text = "0";
-            survivalTime.text = "0";
+            remainingTime.text = "0";
         }
 
         private void Update()
         {
             kills.text = Score.Kills.ToString();
 
-            int time = Score.GetSecondsSurvivalTime();
+            // 残り時間を表示
+            int time = StageData.Instance.LimitTime - (int)Score.ElapsedTime;
             string minutes = (time / 60).ToString("D2");
             string seconds = (time % 60).ToString("D2");
-            survivalTime.text = minutes + ":" + seconds;
+            remainingTime.text = minutes + ":" + seconds;
+
+            // 1分以内は赤に変更
+            if (StageData.Instance.LimitTime - (int)Score.ElapsedTime <= 60)
+            {
+                remainingTime.color = Color.red;
+            }
         }
     }
 }

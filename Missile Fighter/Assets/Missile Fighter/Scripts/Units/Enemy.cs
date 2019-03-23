@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Fighters;
-using MissileFighter.GlobalStageDatas;
-using MissileFighter.Missiles;
 
 namespace MissileFighter.Units
 {

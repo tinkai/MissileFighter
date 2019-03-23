@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Missiles;
 using MissileFighter.Units;
-using MissileFighter.GlobalStageDatas;
+using MissileFighter.GlobalDatas;
 
 namespace MissileFighter.Fighters
 {
@@ -55,7 +55,11 @@ namespace MissileFighter.Fighters
             // プレイヤーの時
             if (tag == "Player")
             {
-                Enemy[] enemys = GlobalStageData.Instance.WaveManager.GetCurrentWave().Enemys;
+                // 現在のWaveが取得できなければ終了
+                if (StageData.Instance.WaveManager.GetCurrentWave() == null) { return; }
+
+                // リストに敵を設定
+                Enemy[] enemys = StageData.Instance.WaveManager.GetCurrentWave().Enemys;
                 foreach (Enemy enemy in enemys)
                 {
                     targetStateList.Add(new LockOnTargetState(enemy.Fighter));
@@ -64,7 +68,7 @@ namespace MissileFighter.Fighters
             // 敵の時
             else if (tag == "Enemy")
             {
-                targetStateList.Add(new LockOnTargetState(GlobalStageData.Instance.Player.Fighter));
+                targetStateList.Add(new LockOnTargetState(StageData.Instance.Player.Fighter));
             }
         }
 

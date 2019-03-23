@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 2123578153}
   - component: {fileID: 2123578152}
   m_Layer: 5
-  m_Name: press space button
+  m_Name: Tap to Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "Space" Button
+  m_Text: Tap to Screen
 --- !u!222 &2123578153
 CanvasRenderer:
   m_ObjectHideFlags: 0

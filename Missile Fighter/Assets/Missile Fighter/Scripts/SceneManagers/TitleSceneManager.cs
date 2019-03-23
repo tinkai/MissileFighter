@@ -15,8 +15,8 @@ namespace MissileFighter.SceneManagers
                 Application.Quit();
             }
 
-            // スペースを押したらバトルシーンへ
-            if (Input.GetKey(KeyCode.Space))
+            // クリックを押したらバトルシーンへ
+            if (Input.GetMouseButtonDown(0))
             {
                 SceneManager.LoadScene("Battle Scene");
             }
