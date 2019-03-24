@@ -12,23 +12,19 @@ namespace MissileFighter.UI {
         // HPスライダー
         private Slider hpBar;
 
-        private Fighter player;
-
-        // プレイヤーの最大のHP
-        private int maxHp;
+        private Fighter fighter;
 
         //*************************************************************
 
         private void Start()
         {
             hpBar = GetComponent<Slider>();
-            player = GameObject.FindWithTag("Player").GetComponent<Fighter>();
-            maxHp = player.Hp;
+            fighter = GameObject.FindWithTag("Player").GetComponent<Fighter>();
         }
 
         private void Update()
         {
-            hpBar.value = (float)player.Hp / maxHp;
+            hpBar.value = (float)fighter.Hp / fighter.MaxHp;
         }
     }
 }

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   damagePower: 1
-  survivalTime: 10
+  survivalTime: 8
   lockOnTime: 2
   inductionForce: 10
   blurRate: 5

@@ -18,10 +18,17 @@ namespace MissileFighter.Fighters
         }
 
         // 機体の体力
-        [SerializeField] private int hp = 1;
+        private int hp;
         public int Hp
         {
             get { return hp; }
+        }
+
+        // 最大体力
+        [SerializeField] private int maxHp = 1;
+        public int MaxHp
+        {
+            get { return maxHp; }
         }
 
         // 死んだか
@@ -71,6 +78,7 @@ namespace MissileFighter.Fighters
             fighterbody = GetComponent<Rigidbody>();
             boosters = GetComponentInChildren<Boosters>();
             missilePods = GetComponentInChildren<MissilePods>();
+            hp = maxHp;
         }
 
         private void FixedUpdate()
