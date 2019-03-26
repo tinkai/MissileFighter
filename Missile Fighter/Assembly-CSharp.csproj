@@ -78,6 +78,7 @@
     <Compile Include="Assets\Missile Fighter\Scripts\UI\HpBar.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarkers.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\UiScore.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\UiWaves.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\Wave.cs" />

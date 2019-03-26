@@ -101,15 +101,9 @@ namespace MissileFighter.Missiles
                 return;
             }
 
-            // 相手に誘導
-            // 自分自身からターゲットを見た方向を取得
-            Quaternion targetDirection = Quaternion.LookRotation(target.position - transform.position);
-            // 軸を絶対値にする  <-- 一回転した時にバグるため
-            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, Mathf.Abs(transform.rotation.w));
-            // 自分の回転している分を考慮するためにInverseをかける
-            Quaternion q = targetDirection * Quaternion.Inverse(transform.rotation);
-            // 敵方向に誘導率分強く向く
-            missilebody.AddTorque(new Vector3(q.x, q.y, q.z) * inductionForce);
+            // 相手の方角にinductionForce分だけ向く
+            Quaternion targetDitection = Quaternion.LookRotation(target.transform.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetDitection, inductionForce);
         }
 
         // 衝突判定

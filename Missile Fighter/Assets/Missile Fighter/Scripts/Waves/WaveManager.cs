@@ -13,7 +13,11 @@ namespace MissileFighter.Waves
         private Wave[] waves;
 
         // 現在のWave番号
-        private int currentWave;
+        private int current;
+        public int Current
+        {
+            get { return current; }
+        }
 
         //***********************************************************
 
@@ -43,13 +47,19 @@ namespace MissileFighter.Waves
         public Wave GetCurrentWave()
         {
             if (IsEndWave()) { return null; }
-            return waves[currentWave];
+            return waves[current];
+        }
+
+        // ウェーブの個数を返す
+        public int GetWaveLength()
+        {
+            return waves.Length;
         }
 
         // 全てのウェーブが終了しているか
         public bool IsEndWave()
         {
-            if (currentWave == waves.Length)
+            if (current == waves.Length)
             {
                 return true;
             }
@@ -59,7 +69,7 @@ namespace MissileFighter.Waves
         // 現在のWaveの敵が全て死んでいるか確認
         private bool IsAllDeadEnemy()
         {
-            foreach (Enemy enemy in waves[currentWave].Enemys)
+            foreach (Enemy enemy in waves[current].Enemys)
             {
                 if (enemy.Fighter.IsDead == false)
                 {
@@ -72,16 +82,17 @@ namespace MissileFighter.Waves
         // 次のWaveに移行するメソッド
         public void GoToNextWave()
         {
-            waves[currentWave].gameObject.SetActive(false);
+            waves[current].gameObject.SetActive(false);
 
             // 終了している場合
-            if (++currentWave == waves.Length)
+            if (++current == waves.Length)
             {
                 return;
             }
 
-            waves[currentWave].gameObject.transform.position = StageData.Instance.Player.gameObject.transform.position;
-            waves[currentWave].gameObject.SetActive(true);
+            waves[current].gameObject.transform.position = StageData.Instance.Player.gameObject.transform.position;
+
+            waves[current].gameObject.SetActive(true);
         }
     }
 }

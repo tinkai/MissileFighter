@@ -94,7 +94,7 @@ namespace MissileFighter.Fighters
             {
                 // 敵が死んでいない
                 // && 敵との間に障害物がない場合
-                if (targetState.Target.GetComponent<Fighter>().IsDead == false
+                if (targetState.Target.IsDead == false
                     && Physics.Linecast(transform.position, targetState.Target.transform.position, LayerMask.GetMask("Field")) == false)
                 {
                     // 自分から見た角度
