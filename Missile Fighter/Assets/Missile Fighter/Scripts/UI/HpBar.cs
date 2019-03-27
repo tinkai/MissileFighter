@@ -16,9 +16,13 @@ namespace MissileFighter.UI {
 
         //*************************************************************
 
-        private void Start()
+        private void Awake()
         {
             hpBar = GetComponent<Slider>();
+        }
+
+        private void Start()
+        {
             fighter = GameObject.FindWithTag("Player").GetComponent<Fighter>();
         }
 

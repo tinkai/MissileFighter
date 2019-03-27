@@ -30,10 +30,13 @@ namespace MissileFighter.Units
 
         //***********************************************************
 
-        private void Start()
+        private void Awake()
         {
             fighter = GetComponent<Fighter>();
             lockOnSystem = GetComponent<LockOnSystem>();
+        }
+        private void Start()
+        {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
 

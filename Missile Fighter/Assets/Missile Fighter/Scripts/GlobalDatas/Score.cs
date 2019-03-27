@@ -20,7 +20,7 @@ namespace MissileFighter.GlobalDatas
 
         //*********************************************************
 
-        private void Start()
+        private void Awake()
         {
             Kills = 0;
             ElapsedTime = 0;

@@ -73,12 +73,16 @@ namespace MissileFighter.Fighters
 
         //***********************************************************
 
-        private void Start()
+        private void Awake()
         {
             fighterbody = GetComponent<Rigidbody>();
+            hp = maxHp;
+        }
+
+        private void Start()
+        {
             boosters = GetComponentInChildren<Boosters>();
             missilePods = GetComponentInChildren<MissilePods>();
-            hp = maxHp;
         }
 
         private void FixedUpdate()

@@ -28,16 +28,19 @@ namespace MissileFighter.UI
 
         //***********************************************************
 
-        private void Start()
+        private void Awake()
         {
-            lockOnSystem = GameObject.FindWithTag("Player").GetComponent<LockOnSystem>();
-            cameraController = GameObject.FindWithTag("Player").GetComponent<FighterCameraController>();
-
             markerList = new List<GameObject>();
             hpBarList = new List<GameObject>();
 
             lockOnColor = Color.red;
             unlockOnColor = Color.green;
+        }
+
+        private void Start()
+        {
+            lockOnSystem = GameObject.FindWithTag("Player").GetComponent<LockOnSystem>();
+            cameraController = GameObject.FindWithTag("Player").GetComponent<FighterCameraController>();
         }
 
         private void Update()
@@ -47,7 +50,8 @@ namespace MissileFighter.UI
             foreach (LockOnTargetState targetState in lockOnSystem.TargetStateList)
             {
                 // カメラに表示されているか     ※ シーンカメラも含まれるので注意
-                if (targetState.Target.GetComponent<Renderer>().isVisible)
+                if (targetState.Target != null
+                    && targetState.Target.GetComponent<Renderer>().isVisible)
                 {
                     visibleTargetStateList.Add(targetState);
                 }

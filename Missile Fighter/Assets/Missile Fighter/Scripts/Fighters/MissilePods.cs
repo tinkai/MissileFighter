@@ -24,10 +24,14 @@ namespace MissileFighter.Fighters
 
         //***********************************************************
 
+        private void Awake()
+        {
+            shotSound = GetComponent<AudioSource>();
+        }
+
         private void Start()
         {
             lockOnSystem = GetComponentInParent<LockOnSystem>();
-            shotSound = GetComponent<AudioSource>();
         }
 
         // 全てのミサイルポッドからミサイルを打つメソッド

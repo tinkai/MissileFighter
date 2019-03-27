@@ -22,10 +22,13 @@ namespace MissileFighter.GlobalDatas
 
         //***********************************************************
 
-        private void Start()
+        private void Awake()
         {
             Instance = this;
+        }
 
+        private void Start()
+        {
             Player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
     }

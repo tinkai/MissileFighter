@@ -4801,7 +4801,7 @@ MonoBehaviour:
   effectAngle: 20
   effectWidth: 2
   effectDistance: 32
-  force: 140
+  force: 10
 --- !u!1 &188207788
 GameObject:
   m_ObjectHideFlags: 0
@@ -10430,3 +10430,4 @@ MonoBehaviour:
   missile: {fileID: 5572251057965692275, guid: da66a3b369cd543889363242047c9269, type: 3}
   lockOnAngle: 25
   lockOnDistance: 1000
+  a: {fileID: 0}

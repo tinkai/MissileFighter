@@ -11,7 +11,7 @@ namespace MissileFighter.Fighters
 
         //***********************************************************
 
-        private void Start()
+        private void Awake()
         {
             fighter = GetComponent<Fighter>();
         }

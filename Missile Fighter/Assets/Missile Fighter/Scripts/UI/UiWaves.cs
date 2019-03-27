@@ -18,7 +18,8 @@ namespace MissileFighter.UI {
 
         private void Update()
         {
-            waveText.text = (waveManager.Current + 1).ToString() + "/" + waveManager.GetWaveLength().ToString();
+            int num = Mathf.Clamp(waveManager.Current + 1, 1, waveManager.GetWaveLength());
+            waveText.text = num.ToString() + "/" + waveManager.GetWaveLength().ToString();
         }
     }
 }

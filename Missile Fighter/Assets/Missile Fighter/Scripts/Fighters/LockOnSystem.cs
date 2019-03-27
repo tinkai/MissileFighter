@@ -4,6 +4,7 @@ using UnityEngine;
 using MissileFighter.Missiles;
 using MissileFighter.Units;
 using MissileFighter.GlobalDatas;
+using UnityEngine.UI;
 
 namespace MissileFighter.Fighters
 {
@@ -35,10 +36,13 @@ namespace MissileFighter.Fighters
 
         //***********************************************************
 
-        private void Start()
+        private void Awake()
         {
             targetStateList = new List<LockOnTargetState>();
+        }
 
+        private void Start()
+        {
             UpdateTargetList();
         }
 
@@ -64,6 +68,7 @@ namespace MissileFighter.Fighters
                 {
                     targetStateList.Add(new LockOnTargetState(enemy.Fighter));
                 }
+
             }
             // 敵の時
             else if (tag == "Enemy")
@@ -94,7 +99,8 @@ namespace MissileFighter.Fighters
             {
                 // 敵が死んでいない
                 // && 敵との間に障害物がない場合
-                if (targetState.Target.IsDead == false
+                if (
+                     targetState.Target.IsDead == false
                     && Physics.Linecast(transform.position, targetState.Target.transform.position, LayerMask.GetMask("Field")) == false)
                 {
                     // 自分から見た角度

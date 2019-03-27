@@ -4,6 +4,7 @@ using UnityEngine;
 using MissileFighter.GlobalDatas;
 using MissileFighter.Units;
 using MissileFighter.Fighters;
+using UnityEngine.UI;
 
 namespace MissileFighter.Waves
 {
@@ -91,7 +92,6 @@ namespace MissileFighter.Waves
             }
 
             waves[current].gameObject.transform.position = StageData.Instance.Player.gameObject.transform.position;
-
             waves[current].gameObject.SetActive(true);
         }
     }
