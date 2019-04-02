@@ -76,7 +76,10 @@
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\ScoreSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\TitleSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\HpBar.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreRanking.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreResult.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TargetMarkers.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\TextColorMethods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\UiScore.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\UiWaves.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
