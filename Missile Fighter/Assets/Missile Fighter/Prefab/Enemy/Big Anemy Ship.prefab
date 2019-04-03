@@ -37431,6 +37431,52 @@ MonoBehaviour:
   effectWidth: 2
   effectDistance: 32
   force: 140
+--- !u!1 &45020478930125916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6565917776255896833}
+  - component: {fileID: 3876327169933761341}
+  m_Layer: 0
+  m_Name: LockOnSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6565917776255896833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45020478930125916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 578665024}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3876327169933761341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45020478930125916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb50c00a37fc5e4ebacf659a1e5a74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missile: {fileID: 5572251057965692275, guid: da66a3b369cd543889363242047c9269, type: 3}
+  lockOnAngle: 360
+  lockOnDistance: 1000
 --- !u!1 &346367260545450793
 GameObject:
   m_ObjectHideFlags: 0
@@ -37675,7 +37721,6 @@ GameObject:
   - component: {fileID: 3438753417039751139}
   - component: {fileID: 6165695014417048428}
   - component: {fileID: 7127786449704425625}
-  - component: {fileID: 7230132692254458743}
   m_Layer: 0
   m_Name: Big Anemy Ship
   m_TagString: Enemy
@@ -37697,6 +37742,7 @@ Transform:
   - {fileID: 6588827996907828798}
   - {fileID: 933788839}
   - {fileID: 855816610}
+  - {fileID: 6565917776255896833}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37787,21 +37833,6 @@ MonoBehaviour:
   fallingForce: 1
   yawingForce: 0.75
   explosionEffect: {fileID: 231792698, guid: 76cd86f5ad5cca840adbfee415284a36, type: 3}
---- !u!114 &7230132692254458743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4297635265381775678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eb50c00a37fc5e4ebacf659a1e5a74d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missile: {fileID: 5572251057965692275, guid: da66a3b369cd543889363242047c9269, type: 3}
-  lockOnAngle: 360
-  lockOnDistance: 1000
 --- !u!1 &4524336537289076428
 GameObject:
   m_ObjectHideFlags: 0

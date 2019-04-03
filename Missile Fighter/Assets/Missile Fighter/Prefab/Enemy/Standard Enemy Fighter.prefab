@@ -10269,7 +10269,6 @@ GameObject:
   - component: {fileID: 1603409351789623069}
   - component: {fileID: 6819096822686279223}
   - component: {fileID: 1603409351789623068}
-  - component: {fileID: 614011048177720444}
   m_Layer: 0
   m_Name: Standard Enemy Fighter
   m_TagString: Enemy
@@ -10291,6 +10290,7 @@ Transform:
   - {fileID: 188207789}
   - {fileID: 376314343}
   - {fileID: 1330161633}
+  - {fileID: 6664759673666994521}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10415,13 +10415,44 @@ MonoBehaviour:
   fallingForce: 1
   yawingForce: 0.75
   explosionEffect: {fileID: 231792698, guid: 76cd86f5ad5cca840adbfee415284a36, type: 3}
---- !u!114 &614011048177720444
+--- !u!1 &7100098786211694196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6664759673666994521}
+  - component: {fileID: 370120932363522457}
+  m_Layer: 0
+  m_Name: LockOnSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6664759673666994521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100098786211694196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1603409351789623059}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370120932363522457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603409351789623062}
+  m_GameObject: {fileID: 7100098786211694196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eb50c00a37fc5e4ebacf659a1e5a74d, type: 3}
@@ -10430,4 +10461,3 @@ MonoBehaviour:
   missile: {fileID: 5572251057965692275, guid: da66a3b369cd543889363242047c9269, type: 3}
   lockOnAngle: 25
   lockOnDistance: 1000
-  a: {fileID: 0}

@@ -39,7 +39,7 @@ namespace MissileFighter.UI
 
         private void Start()
         {
-            lockOnSystem = GameObject.FindWithTag("Player").GetComponent<LockOnSystem>();
+            lockOnSystem = GameObject.FindWithTag("Player").GetComponentInChildren<LockOnSystem>();
             cameraController = GameObject.FindWithTag("Player").GetComponent<FighterCameraController>();
         }
 

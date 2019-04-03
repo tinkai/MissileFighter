@@ -33,10 +33,11 @@ namespace MissileFighter.Units
         private void Awake()
         {
             fighter = GetComponent<Fighter>();
-            lockOnSystem = GetComponent<LockOnSystem>();
         }
+
         private void Start()
         {
+            lockOnSystem = GetComponentInChildren<LockOnSystem>();
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
 
@@ -51,7 +52,7 @@ namespace MissileFighter.Units
             }
 
             // ロックオン距離のよりもプレイヤーとの距離が離れているなら移動速度を最高速に
-            if (Vector3.Distance(transform.position, player.transform.position) > GetComponent<LockOnSystem>().LockOnDistance)
+            if (Vector3.Distance(transform.position, player.transform.position) > lockOnSystem.LockOnDistance)
             {
                 fighter.AccelerationStatement = FighterStatementConstant.ACCELERATION;
             }

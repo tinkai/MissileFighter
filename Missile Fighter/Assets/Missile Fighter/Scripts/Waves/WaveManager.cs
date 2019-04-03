@@ -20,6 +20,9 @@ namespace MissileFighter.Waves
             get { return current; }
         }
 
+        // プレイヤーのロックオンシステム
+        private LockOnSystem playerLockOnSystem;
+
         //***********************************************************
 
         private void Start()
@@ -30,6 +33,8 @@ namespace MissileFighter.Waves
             {
                 waves[i].gameObject.SetActive(false);
             }
+
+            playerLockOnSystem = GameObject.FindWithTag("Player").GetComponentInChildren<LockOnSystem>();
         }
 
         private void Update()
@@ -40,7 +45,7 @@ namespace MissileFighter.Waves
                 GoToNextWave();
 
                 // プレイヤーのロックオンシステムのターゲットを更新
-                StageData.Instance.Player.GetComponent<LockOnSystem>().UpdateTargetList();
+                playerLockOnSystem.UpdateTargetList();
             }
         }
 

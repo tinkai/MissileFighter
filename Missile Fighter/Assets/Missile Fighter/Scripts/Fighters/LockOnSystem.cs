@@ -10,6 +10,9 @@ namespace MissileFighter.Fighters
 {
     public class LockOnSystem : MonoBehaviour
     {
+        // インスタンスの持ち主
+        private Fighter fighter;
+
         // ロックオンターゲットの状態リスト
         private List<LockOnTargetState> targetStateList;
         public List<LockOnTargetState> TargetStateList
@@ -43,6 +46,7 @@ namespace MissileFighter.Fighters
 
         private void Start()
         {
+            fighter = transform.parent.GetComponent<Fighter>();
             UpdateTargetList();
         }
 
@@ -57,7 +61,7 @@ namespace MissileFighter.Fighters
             targetStateList.Clear();
 
             // プレイヤーの時
-            if (tag == "Player")
+            if (fighter.tag == "Player")
             {
                 // 現在のWaveが取得できなければ終了
                 if (StageData.Instance.WaveManager.GetCurrentWave() == null) { return; }
@@ -71,7 +75,7 @@ namespace MissileFighter.Fighters
 
             }
             // 敵の時
-            else if (tag == "Enemy")
+            else if (fighter.tag == "Enemy")
             {
                 targetStateList.Add(new LockOnTargetState(StageData.Instance.Player.Fighter));
             }
@@ -116,6 +120,12 @@ namespace MissileFighter.Fighters
                         // 武器のロックオン時間を超えたら、完全なロックオン
                         if (targetState.LockOnElapsedTime >= missile.LockOnTime)
                         {
+                            // プレイヤーの時 && ロックオン開始  の場合、ロック音を鳴らす
+                            if (fighter.tag == "Player" && targetState.IsLockOn == false)
+                            {
+                                AudioSource audio = GetComponent<AudioSource>();
+                                audio.PlayOneShot(audio.clip);
+                            }
                             targetState.IsLockOn = true;
                         }
                         else

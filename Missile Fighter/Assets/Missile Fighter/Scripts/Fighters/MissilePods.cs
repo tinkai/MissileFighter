@@ -31,7 +31,7 @@ namespace MissileFighter.Fighters
 
         private void Start()
         {
-            lockOnSystem = GetComponentInParent<LockOnSystem>();
+            lockOnSystem = transform.parent.GetComponentInChildren<LockOnSystem>();
         }
 
         // 全てのミサイルポッドからミサイルを打つメソッド
