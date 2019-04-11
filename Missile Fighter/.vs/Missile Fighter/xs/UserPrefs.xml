@@ -1,11 +1,9 @@
 ﻿<Properties StartupConfiguration="{049A1624-2532-6942-6399-A9475B63540B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Missile Fighter/Scripts/Missiles/Missile.cs">
     <Files>
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="123" Column="40" />
-      <File FileName="Assets/Missile Fighter/Scripts/UI/TargetMarkers.cs" Line="42" Column="83" />
-      <File FileName="Assets/Missile Fighter/Scripts/Fighters/MissilePods.cs" Line="8" Column="23" />
-      <File FileName="Assets/Missile Fighter/Scripts/Units/Enemy.cs" Line="40" Column="67" />
-      <File FileName="Assets/Missile Fighter/Scripts/Waves/WaveManager.cs" Line="37" Column="79" />
+      <File FileName="Assets/Missile Fighter/Scripts/Fighters/LockOnSystem.cs" Line="102" Column="14" />
+      <File FileName="Assets/Missile Fighter/Scripts/GlobalDatas/StageData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Missile Fighter/Scripts/Missiles/Missile.cs" Line="109" Column="103" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
