@@ -5,5 +5,5 @@
 バージョン管理 : Sourcetree 3.1.2 (GitHub)  
 OS : MacBook Pro ,  Windows10  
 ## 開発について
-開発開始日 : 2019/2/28
-開発メモ(2019/4/2開始) : https://trello.com/b/04sZ2QVY/missile-fighter
+開発開始日 : 2019/2/28  
+開発メモ(trello) : https://trello.com/b/04sZ2QVY/missile-fighter (2019/4/2開始)
