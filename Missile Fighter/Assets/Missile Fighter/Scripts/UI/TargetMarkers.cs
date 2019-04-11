@@ -85,9 +85,14 @@ namespace MissileFighter.UI
             {
                 // マーカーの画面上の位置を設定
                 Vector2 screenPosition = cameraController.GetCurrentCamera().WorldToViewportPoint(visibleTargetStateList[i].Target.transform.position);
-                //WorldToScreenPoint(cameraController.GetCurrentCamera(), visibleTargetStateList[i].Target.transform.position);
                 markerList[i].transform.position = new Vector3(Screen.width * screenPosition.x, Screen.height * screenPosition.y, 0f);
                 hpBarList[i].transform.position = new Vector3(Screen.width * screenPosition.x, Screen.height * screenPosition.y, 0f);
+
+                // 距離によって大きさを0.5~1.0で推移 大きさの変わる距離は500~1500
+                // 線形補間をClampで制限して大きさを決定 Clamp後、0.0~0.5fをとるため、1から引く 
+                // y = (x-500) / 2000   x:Distance
+                float size = 1 - Mathf.Clamp((Vector3.Distance(lockOnSystem.transform.position, visibleTargetStateList[i].Target.transform.position) - 500f) / 2000, 0.0f, 0.5f);
+                markerList[i].transform.localScale = new Vector3(size, size, 1);
 
                 // マーカーの色を設定
                 if (visibleTargetStateList[i].IsLockOn)
@@ -97,6 +102,7 @@ namespace MissileFighter.UI
                 else
                 {
                     markerList[i].GetComponent<Image>().color = unlockOnColor;  // 画面には写っている
+                    markerList[i].transform.Rotate(new Vector3(0, 0, 90) * Time.deltaTime); // マーカーの回転
                 }
 
                 hpBarList[i].GetComponentInChildren<Slider>().value = (float)visibleTargetStateList[i].Target.Hp / visibleTargetStateList[i].Target.MaxHp;
