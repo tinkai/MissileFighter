@@ -13,7 +13,21 @@ namespace MissileFighter.SceneManagers
         // バトル終了時に表示するテキスト
         [SerializeField] private Text[] results;
 
+        // カウントダウン用テキスト・音源
+        [SerializeField] private Text countdownText;
+        private AudioSource countdownAudio;
+
         //**********************************************************
+
+        private void Awake()
+        {
+            countdownAudio = GetComponent<AudioSource>();
+        }
+
+        private void Start()
+        {
+            StartCoroutine(Countdown());
+        }
 
         private void Update()
         {
@@ -24,6 +38,31 @@ namespace MissileFighter.SceneManagers
             }
 
             StartCoroutine(EndBattle());
+        }
+
+        // 最初の3秒のカウントダウン
+        private IEnumerator Countdown()
+        {
+            // スコアに関する時間を停止
+            Score.TimeStop = true;
+            // ロックオンシステムを無効化
+            GameObject.FindWithTag("Player").GetComponentInChildren<LockOnSystem>().enabled = false;
+
+            // 音を鳴らす
+            countdownAudio.PlayOneShot(countdownAudio.clip);
+            // 3秒カウントダウン
+            for (int i = 3; i > 0; i--)
+            {
+                countdownText.text = i.ToString();
+                yield return new WaitForSeconds(1.0f);  // 1秒待つ
+            }
+
+            countdownText.enabled = false;  // カウントダウンの表示を消す
+
+            // ゲームを開始する
+            Score.TimeStop = false;
+            GameObject.FindWithTag("Player").GetComponentInChildren<LockOnSystem>().enabled = true;
+            StageData.Instance.WaveManager.StartWave();
         }
 
         // バトルの終了判定と動作

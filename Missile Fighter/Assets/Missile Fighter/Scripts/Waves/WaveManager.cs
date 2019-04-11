@@ -29,7 +29,7 @@ namespace MissileFighter.Waves
         {
             waves = GetComponentsInChildren<Wave>();
             // wave0以外の表示を消す
-            for (int i = 1; i < waves.Length; i++)
+            for (int i = 0; i < waves.Length; i++)
             {
                 waves[i].gameObject.SetActive(false);
             }
@@ -96,6 +96,12 @@ namespace MissileFighter.Waves
                 return;
             }
 
+            StartWave();
+        }
+
+        // ウェーブを開始
+        public void StartWave()
+        {
             waves[current].gameObject.transform.position = StageData.Instance.Player.gameObject.transform.position;
             waves[current].gameObject.SetActive(true);
         }
