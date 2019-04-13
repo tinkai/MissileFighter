@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using MissileFighter.UI;
+using MissileFighter.UI.ScoreScreen;
 
 namespace MissileFighter.SceneManagers
 {

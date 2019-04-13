@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using MissileFighter.GlobalDatas;
-using MissileFighter.Fighters;
+using MissileFighter.Fighters.Systems;
+using MissileFighter.Fighters.Controllers;
 
 namespace MissileFighter.SceneManagers
 {

@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MissileFighter.Missiles;
+using MissileFighter.Fighters.Bodys;
+using MissileFighter.Fighters.Constants;
+using MissileFighter.Weapons;
 using MissileFighter.GlobalDatas;
 
 namespace MissileFighter.Fighters

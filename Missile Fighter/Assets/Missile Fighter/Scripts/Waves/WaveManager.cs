@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.GlobalDatas;
 using MissileFighter.Units;
-using MissileFighter.Fighters;
-using UnityEngine.UI;
+using MissileFighter.Fighters.Systems;
 
 namespace MissileFighter.Waves
 {
