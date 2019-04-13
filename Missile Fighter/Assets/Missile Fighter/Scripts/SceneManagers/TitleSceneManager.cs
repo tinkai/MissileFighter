@@ -7,6 +7,14 @@ namespace MissileFighter.SceneManagers
 {
     public class TitleSceneManager : MonoBehaviour
     {
+        // tap to start テキストオブジェクト
+        [SerializeField] private GameObject tapText;
+
+        // tap時の音
+        [SerializeField] private AudioSource tapAudio;
+
+        //*********************************************************
+
         private void Update()
         {
             // エスケープで終了
@@ -18,8 +26,20 @@ namespace MissileFighter.SceneManagers
             // クリックを押したらバトルシーンへ
             if (Input.GetMouseButtonDown(0))
             {
-                SceneManager.LoadScene("Battle Scene");
+                // アニメーション・オーディオのスタート
+                tapText.GetComponent<Animator>().SetTrigger("Tap");
+                tapAudio.PlayOneShot(tapAudio.clip);
+
+                StartCoroutine(TapScreen());
             }
+        }
+
+        // タップ時の音が鳴りやむ
+        private IEnumerator TapScreen()
+        {
+            yield return new WaitForSeconds(1.0f);
+
+            SceneManager.LoadScene("Battle Scene");
         }
     }
 }
