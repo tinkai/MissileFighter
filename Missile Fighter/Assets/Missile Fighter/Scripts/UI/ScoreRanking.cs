@@ -18,7 +18,7 @@ namespace MissileFighter.UI
 
         private void Start()
         {
-            PlayerPrefs.DeleteAll();
+            //PlayerPrefs.DeleteAll();    // ランキングデータ削除
             // ランキングを更新
             int score = Score.CalcTotalScore();
             for (int i = 0; i < keys.Length; i++)
@@ -26,7 +26,7 @@ namespace MissileFighter.UI
                 // まだランキングがない場合は、追加
                 if (PlayerPrefs.HasKey(keys[i]) == false) {
                     PlayerPrefs.SetInt(keys[i], score);
-                    StartCoroutine(TextColorMethods.ChangeTextColor(rankingText[i]));
+                    rankingText[i].GetComponent<Animator>().SetBool("New High Score", true);
                     break;
                 }
 
@@ -40,7 +40,7 @@ namespace MissileFighter.UI
                     }
                     // 新規スコアを反映
                     PlayerPrefs.SetInt(keys[i], score);
-                    StartCoroutine(TextColorMethods.ChangeTextColor(rankingText[i]));
+                    rankingText[i].GetComponent<Animator>().SetBool("New High Score", true);
                     break;
                 }
             }

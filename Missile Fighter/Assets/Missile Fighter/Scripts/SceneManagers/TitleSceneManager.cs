@@ -34,7 +34,7 @@ namespace MissileFighter.SceneManagers
             }
         }
 
-        // タップ時の音が鳴りやむ
+        // タップ時の音が鳴りやむまで待った後、シーン遷移
         private IEnumerator TapScreen()
         {
             yield return new WaitForSeconds(1.0f);

@@ -14,8 +14,6 @@ namespace MissileFighter.UI
         [SerializeField] private Text elapsedTime;
         [SerializeField] private Text total;
 
-        // スコアランキング
-
         //*********************************************************
 
         private void Start()
@@ -33,18 +31,44 @@ namespace MissileFighter.UI
             {
                 results[2].enabled = true;
             }
+        }
 
+        // スコアを表示
+        public IEnumerator ShowScore()
+        {
             // キル数表示
-            kills.text = Score.Kills.ToString();
+            yield return StartCoroutine(ShowScoreAnim(kills, Score.Kills));
+            yield return new WaitForSeconds(0.2f);
 
             // 残り時間を表示
-            int time = (int)Score.ElapsedTime;
-            string minutes = (time / 60).ToString("D2");
-            string seconds = (time % 60).ToString("D2");
-            elapsedTime.text = minutes + ":" + seconds;
+            yield return StartCoroutine(ShowScoreAnim(elapsedTime, (int)Score.ElapsedTime));
+            yield return new WaitForSeconds(0.2f);
 
             // スコア合計を表示
-            total.text = Score.CalcTotalScore().ToString();
+            yield return StartCoroutine(ShowScoreAnim(total, Score.CalcTotalScore()));
+        }
+
+
+        private IEnumerator ShowScoreAnim(Text text, int value)
+        {
+            // 大きくさせるアニメーション
+            text.GetComponent<Animator>().SetTrigger("Grow");
+
+            float time = 0.0f;
+            // 1秒アニメーション
+            while (true)
+            {
+                if ((time += Time.deltaTime) > 1.0f)
+                {
+                    break;
+                }
+                text.text = Random.Range(0, 99999).ToString("D5");
+                yield return null;
+            }
+
+            AudioSource audio = text.GetComponent<AudioSource>();
+            audio.PlayOneShot(audio.clip);
+            text.text = value.ToString();
         }
     }
 }
