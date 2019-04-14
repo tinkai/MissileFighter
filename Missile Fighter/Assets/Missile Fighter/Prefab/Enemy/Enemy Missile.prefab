@@ -170,8 +170,8 @@ MonoBehaviour:
   speed: 200
   damagePower: 1
   survivalTime: 6
-  lockOnTime: 2
-  inductionForce: 0.07
+  lockOnTime: 1.5
+  inductionForce: 20
   blurRate: 10
   blurForce: 20
   explosionEffect: {fileID: 814246500, guid: 62402771d89a74a47996378910737ccf, type: 3}

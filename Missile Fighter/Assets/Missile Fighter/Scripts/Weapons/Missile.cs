@@ -104,9 +104,22 @@ namespace MissileFighter.Weapons
                 return;
             }
 
-            // 相手の方角にinductionForce分だけ向く
-            Quaternion targetDitection = Quaternion.LookRotation(target.transform.position - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetDitection, inductionForce);
+            // 誘導
+            // 自身の位置からの相手の方向を調べる 軸は自身のy軸
+            Quaternion targetRot = Quaternion.LookRotation(target.position - transform.position, transform.up);
+            // Inverseを掛け、自身の回転を考慮した方向を求める
+            Quaternion rot = targetRot * Quaternion.Inverse(transform.rotation);
+            // その角度になるには、短い回転と長い回転の2通りがある wが-の時は長い回転であるため、短い回転に変換
+            // QUaternionは符号を変えても同じ角度を表せるため、成り立つ
+            if (rot.w < 0)
+            {
+                rot.x = -rot.x;
+                rot.y = -rot.y;
+                rot.z = -rot.z;
+                rot.w = -rot.w;
+            }
+
+            missilebody.AddTorque(new Vector3(rot.x, rot.y, rot.z) * inductionForce);
         }
 
         // 衝突判定

@@ -119,7 +119,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.3137255, b: 0.3137255, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   damagePower: 1
   survivalTime: 8
   lockOnTime: 1
-  inductionForce: 0.1
+  inductionForce: 40
   blurRate: 10
   blurForce: 20
   explosionEffect: {fileID: 814246500, guid: 62402771d89a74a47996378910737ccf, type: 3}
