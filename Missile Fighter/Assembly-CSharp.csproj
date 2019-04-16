@@ -67,8 +67,10 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\FighterCameraController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Fighter.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\EnemyLockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\LockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\LockOnTargetState.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\PlayerLockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\Score.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\StageData.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\BattleSceneManager.cs" />

@@ -37440,7 +37440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6565917776255896833}
-  - component: {fileID: 3876327169933761341}
+  - component: {fileID: 8908413150138834851}
   m_Layer: 0
   m_Name: LockOnSystem
   m_TagString: Untagged
@@ -37462,7 +37462,7 @@ Transform:
   m_Father: {fileID: 578665024}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3876327169933761341
+--- !u!114 &8908413150138834851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37471,7 +37471,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 45020478930125916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eb50c00a37fc5e4ebacf659a1e5a74d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba73ce820a9c444ca818250d62b5467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5572251057965692275, guid: da66a3b369cd543889363242047c9269, type: 3}
@@ -37791,7 +37791,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4297635265381775678}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 0
@@ -37826,8 +37826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
-  normalSpeedAcceleration: 50
-  acceleration: 100
+  normalSpeedAcceleration: 2500
+  acceleration: 5000
   rollingForce: 5
   risingForce: 2.5
   fallingForce: 1

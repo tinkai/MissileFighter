@@ -13,7 +13,7 @@ namespace MissileFighter.Fighters.Systems
         private Fighter fighter;
 
         // ロックオンターゲットの状態リスト
-        private List<LockOnTargetState> targetStateList;
+        protected List<LockOnTargetState> targetStateList;
         public List<LockOnTargetState> TargetStateList
         {
             get { return targetStateList; }
@@ -54,30 +54,11 @@ namespace MissileFighter.Fighters.Systems
             LockOnProcess();
         }
 
-        // ターゲットリストを更新するメソッド
-        public void UpdateTargetList()
+        // ターゲットリストを更新するメソッド 
+        public virtual void UpdateTargetList()
         {
+            // 初期化
             targetStateList.Clear();
-
-            // プレイヤーの時
-            if (fighter.tag == "Player")
-            {
-                // 現在のWaveが取得できなければ終了
-                if (StageData.Instance.WaveManager.GetCurrentWave() == null) { return; }
-
-                // リストに敵を設定
-                Enemy[] enemys = StageData.Instance.WaveManager.GetCurrentWave().Enemys;
-                foreach (Enemy enemy in enemys)
-                {
-                    targetStateList.Add(new LockOnTargetState(enemy.Fighter));
-                }
-
-            }
-            // 敵の時
-            else if (fighter.tag == "Enemy")
-            {
-                targetStateList.Add(new LockOnTargetState(StageData.Instance.Player.Fighter));
-            }
         }
 
         // ロックオンしているターゲットリストを返す
@@ -118,12 +99,7 @@ namespace MissileFighter.Fighters.Systems
                         // 武器のロックオン時間を超えたら、完全なロックオン
                         if (targetState.LockOnElapsedTime >= missile.LockOnTime)
                         {
-                            // プレイヤーの時 && ロックオン開始  の場合、ロック音を鳴らす
-                            if (fighter.tag == "Player" && targetState.IsLockOn == false)
-                            {
-                                AudioSource audio = GetComponent<AudioSource>();
-                                audio.PlayOneShot(audio.clip);
-                            }
+                            PlayFirstLockOnAudio(targetState);
                             targetState.IsLockOn = true;
                         }
                         else
@@ -140,5 +116,8 @@ namespace MissileFighter.Fighters.Systems
                 targetState.IsLockOn = false;
             }
         }
+
+        // 初回ロックオン時に音を鳴らすメソッド 基本的にプレイヤーだけ鳴らすようにオーバーライド
+        protected virtual void PlayFirstLockOnAudio(LockOnTargetState targetState) { }
     }
 }
