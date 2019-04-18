@@ -337,7 +337,6 @@
 /Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/UnityEngine.UI.xml
 /Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/UnityEngine.TestRunner.dll.mdb
 /Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/UnityEngine.TestRunner.xml
-/Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/nunit.framework.pdb
 /Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/nunit.framework.xml
 /Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/UnityEngine.Timeline.dll.mdb
 /Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Temp/bin/Debug/UnityEngine.Timeline.xml

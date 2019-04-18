@@ -22,6 +22,11 @@ namespace MissileFighter.SceneManagers
 
         private void Awake()
         {
+            // ゲーム設定の背景や反射を反映
+            RenderSettings.skybox = GameSetting.skyboxMaterial;
+            DynamicGI.UpdateEnvironment();
+            RenderSettings.reflectionIntensity = GameSetting.reflectionIntensity;
+
             countdownAudio = GetComponent<AudioSource>();
         }
 
