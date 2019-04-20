@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Missile Fighter\Scripts\Common\CanvasManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Bodys\Boosters.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Bodys\MissilePods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Constants\FighterDirectionConstant.cs" />
@@ -71,23 +72,28 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\LockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\LockOnTargetState.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\PlayerLockOnSystem.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\GameSetting.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\Score.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\GlobalDatas\StageData.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\BattleSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\ScoreSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\TitleSceneManager.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Settings\GameSetting.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Settings\GameSettingEditer.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Settings\Stages\StageInformation.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Settings\Stages\StageSetting.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\BattleScreen\HpBar.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\BattleScreen\TargetMarkers.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\BattleScreen\UiScore.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\BattleScreen\UiWaves.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreScreen\ScoreRanking.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreScreen\ScoreResult.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationContents.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationList.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\Wave.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\WaveManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Weapons\Missile.cs" />
+    <Compile Include="Assets\Units\Enemy.cs" />
+    <Compile Include="Assets\Units\Player.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

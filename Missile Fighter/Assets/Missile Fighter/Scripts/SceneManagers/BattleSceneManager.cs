@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using MissileFighter.Settings;
 using MissileFighter.GlobalDatas;
 using MissileFighter.Fighters.Systems;
 using MissileFighter.Fighters.Controllers;
@@ -22,10 +23,8 @@ namespace MissileFighter.SceneManagers
 
         private void Awake()
         {
-            // ゲーム設定の背景や反射を反映
-            RenderSettings.skybox = GameSetting.skyboxMaterial;
-            DynamicGI.UpdateEnvironment();
-            RenderSettings.reflectionIntensity = GameSetting.reflectionIntensity;
+            // ゲーム設定を反映
+            GameSetting.ReflectSetting();
 
             countdownAudio = GetComponent<AudioSource>();
         }

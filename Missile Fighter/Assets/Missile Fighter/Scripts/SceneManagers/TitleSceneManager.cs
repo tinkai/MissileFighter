@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MissileFighter.Common;
 
 namespace MissileFighter.SceneManagers
 {
     public class TitleSceneManager : MonoBehaviour
     {
-        // tap to start テキストオブジェクト
+        // バトルシーンへ遷移するボタンのテキストオブジェクト
         [SerializeField] private GameObject tapText;
 
-        // tap時の音
-        [SerializeField] private AudioSource tapAudio;
-
         //*********************************************************
+
+        private void Start()
+        {
+            // タイトルのキャンバスだけをアクティブ
+            FindObjectOfType<CanvasManager>().ActiveOnlyCanvas("Title Canvas");
+        }
 
         private void Update()
         {
@@ -22,21 +26,22 @@ namespace MissileFighter.SceneManagers
             {
                 Application.Quit();
             }
-
-            // クリックを押したらバトルシーンへ
-            if (Input.GetMouseButtonDown(0))
-            {
-                // アニメーション・オーディオのスタート
-                tapText.GetComponent<Animator>().SetTrigger("Tap");
-                tapAudio.PlayOneShot(tapAudio.clip);
-
-                StartCoroutine(TapScreen());
-            }
         }
 
-        // タップ時の音が鳴りやむまで待った後、シーン遷移
-        private IEnumerator TapScreen()
+        // バトルシーンへ遷移するボタン処理
+        public void OnClickBattleStart()
         {
+            StartCoroutine(TransitionBattleScene());
+        }
+
+        // バトルシーンへ遷移
+        public IEnumerator TransitionBattleScene()
+        {
+            // アニメーション・オーディオのスタート
+            tapText.GetComponent<Animator>().SetTrigger("Tap");
+            AudioSource tapAudio = tapText.GetComponent<AudioSource>();
+            tapAudio.PlayOneShot(tapAudio.clip);
+
             yield return new WaitForSeconds(1.0f);
 
             SceneManager.LoadScene("Battle Scene");
