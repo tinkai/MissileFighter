@@ -13,7 +13,7 @@ namespace MissileFighter.UI.BattleScreen
         private LockOnSystem lockOnSystem;
 
         // プレイヤーのカメラコントローラ
-        private FighterCameraController cameraController;
+        private PlayerCameraChanger cameraChanger;
 
         // マーカーのプレハブ
         [SerializeField] private GameObject targetMarkerPrefab;
@@ -41,7 +41,7 @@ namespace MissileFighter.UI.BattleScreen
         private void Start()
         {
             lockOnSystem = GameObject.FindWithTag("Player").GetComponentInChildren<LockOnSystem>();
-            cameraController = GameObject.FindWithTag("Player").GetComponent<FighterCameraController>();
+            cameraChanger = GameObject.FindWithTag("Player").GetComponent<PlayerCameraChanger>();
         }
 
         private void Update()
@@ -85,7 +85,7 @@ namespace MissileFighter.UI.BattleScreen
             for (int i = 0; i < visibleTargetStateList.Count; i++)
             {
                 // マーカーの画面上の位置を設定
-                Vector2 screenPosition = cameraController.GetCurrentCamera().WorldToViewportPoint(visibleTargetStateList[i].Target.transform.position);
+                Vector2 screenPosition = cameraChanger.GetCurrentCamera().WorldToViewportPoint(visibleTargetStateList[i].Target.transform.position);
                 markerList[i].transform.position = new Vector3(Screen.width * screenPosition.x, Screen.height * screenPosition.y, 0f);
                 hpBarList[i].transform.position = new Vector3(Screen.width * screenPosition.x, Screen.height * screenPosition.y, 0f);
 

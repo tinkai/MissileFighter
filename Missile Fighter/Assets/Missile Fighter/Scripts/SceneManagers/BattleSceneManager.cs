@@ -98,7 +98,7 @@ namespace MissileFighter.SceneManagers
             else if (StageData.Instance.Player.Fighter.IsDead)
             {
                 Score.TimeStop = true;
-                StageData.Instance.Player.GetComponent<FighterCameraController>().GetCurrentCamera().transform.parent = null;
+                StageData.Instance.Player.GetComponent<PlayerCameraChanger>().GetCurrentCamera().transform.parent = null;
                 results[2].enabled = true;
 
                 yield return new WaitForSeconds(3.0f);

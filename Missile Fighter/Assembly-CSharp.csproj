@@ -65,7 +65,8 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Bodys\MissilePods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Constants\FighterDirectionConstant.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Constants\FighterStatementConstant.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\FighterCameraController.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerCameraChanger.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerCameraMover.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Fighter.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\EnemyLockOnSystem.cs" />
