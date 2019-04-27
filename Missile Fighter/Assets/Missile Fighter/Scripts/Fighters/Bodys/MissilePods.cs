@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Fighters.Systems;
-using MissileFighter.Weapons;
+using MissileFighter.Weapons.Missiles;
 
 namespace MissileFighter.Fighters.Bodys
 {
@@ -46,8 +46,8 @@ namespace MissileFighter.Fighters.Bodys
             shotSound.PlayOneShot(shotSound.clip);  // 発射音
 
             // ロックオンされているターゲットリストを取得
-            List<GameObject> targetList = lockOnSystem.GetLockOnTargetList();
-            
+            List<LockOnTargetState> targetList = lockOnSystem.GetLockOnTargetList();
+
             // ロックオンしていない場合はそのまま直進で打つ
             if (targetList.Count == 0)
             {
@@ -55,19 +55,19 @@ namespace MissileFighter.Fighters.Bodys
                 {
                     GameObject missile = Instantiate(missilePrefab, pod.position, pod.rotation);
                     missile.GetComponent<Missile>().Fighter = GetComponentInParent<Fighter>();
-
                 }
-            } 
+            }
             // ロックオンしている場合は、ターゲット全てに打つ
             else
             {
-                foreach(GameObject target in targetList)
+                foreach (LockOnTargetState targetState in targetList)
                 {
                     foreach (Transform pod in gameObject.transform)
                     {
                         GameObject missile = Instantiate(missilePrefab, pod.position, pod.rotation);
                         missile.GetComponent<Missile>().Fighter = GetComponentInParent<Fighter>();
-                        missile.GetComponent<Missile>().Target = target.transform;  // ターゲット設定
+                        missile.GetComponent<Missile>().Target = targetState.Target.transform;  // ターゲット設定
+                        missile.GetComponent<Missile>().UpdatePerformance(targetState.LockOnRank);
                     }
                 }
             }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MissileFighter.Fighters.Bodys;
 using MissileFighter.Fighters.Constants;
-using MissileFighter.Weapons;
+using MissileFighter.Weapons.Missiles;
 using MissileFighter.GlobalDatas;
 
 namespace MissileFighter.Fighters

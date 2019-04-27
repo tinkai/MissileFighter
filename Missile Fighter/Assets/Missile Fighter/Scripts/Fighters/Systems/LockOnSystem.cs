@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MissileFighter.Weapons;
+using MissileFighter.Weapons.Missiles;
 using MissileFighter.Units;
 using MissileFighter.GlobalDatas;
 
@@ -62,14 +62,14 @@ namespace MissileFighter.Fighters.Systems
         }
 
         // ロックオンしているターゲットリストを返す
-        public List<GameObject> GetLockOnTargetList()
+        public List<LockOnTargetState> GetLockOnTargetList()
         {
-            List<GameObject> lockOnTargetList = new List<GameObject>();
-            foreach(LockOnTargetState targetState in targetStateList)
+            List<LockOnTargetState> lockOnTargetList = new List<LockOnTargetState>();
+            foreach (LockOnTargetState targetState in targetStateList)
             {
-                if (targetState.IsLockOn)
+                if (targetState.LockOnRank >= 1)
                 {
-                    lockOnTargetList.Add(targetState.Target.gameObject);
+                    lockOnTargetList.Add(targetState);
                 }
             }
             return lockOnTargetList;
@@ -96,15 +96,22 @@ namespace MissileFighter.Fighters.Systems
                     {
                         targetState.LockOnElapsedTime += Time.deltaTime;
 
-                        // 武器のロックオン時間を超えたら、完全なロックオン
-                        if (targetState.LockOnElapsedTime >= missile.LockOnTime)
+                        int pastRank = targetState.LockOnRank;
+
+                        // ロックオン段階を判定
+                        for (int i = 3; i >= 0; i--)
                         {
-                            PlayFirstLockOnAudio(targetState);
-                            targetState.IsLockOn = true;
+                            if (targetState.LockOnElapsedTime >= i * missile.LockOnTime)
+                            {
+                                targetState.LockOnRank = i;
+                                break;
+                            }
                         }
-                        else
+
+                        // ロックオンランクが上がっていた場合、音を鳴らす
+                        if (targetState.LockOnRank > pastRank)
                         {
-                            targetState.IsLockOn = false;
+                            PlayLockOnAudio();
                         }
 
                         continue;
@@ -113,11 +120,11 @@ namespace MissileFighter.Fighters.Systems
 
                 // ロックオンできない場合
                 targetState.LockOnElapsedTime = 0;
-                targetState.IsLockOn = false;
+                targetState.LockOnRank = 0;
             }
         }
 
         // 初回ロックオン時に音を鳴らすメソッド 基本的にプレイヤーだけ鳴らすようにオーバーライド
-        protected virtual void PlayFirstLockOnAudio(LockOnTargetState targetState) { }
+        protected virtual void PlayLockOnAudio() { }
     }
 }

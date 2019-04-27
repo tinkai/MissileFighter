@@ -92,7 +92,8 @@
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationList.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\Wave.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\WaveManager.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Weapons\Missile.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Weapons\Missiles\Missile.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Weapons\Missiles\PlayerMissile.cs" />
     <Compile Include="Assets\Units\Enemy.cs" />
     <Compile Include="Assets\Units\Player.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

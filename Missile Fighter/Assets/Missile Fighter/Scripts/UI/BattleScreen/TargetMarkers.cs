@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MissileFighter.Fighters.Systems;
 using MissileFighter.Fighters.Controllers;
+using MissileFighter.Weapons.Missiles;
 
 namespace MissileFighter.UI.BattleScreen
 {
@@ -24,8 +25,7 @@ namespace MissileFighter.UI.BattleScreen
         private List<GameObject> hpBarList;
 
         // ロックオンの設定色
-        private Color lockOnColor;
-        private Color unlockOnColor;
+        private Color[] lockOnColor;
 
         //***********************************************************
 
@@ -34,8 +34,7 @@ namespace MissileFighter.UI.BattleScreen
             markerList = new List<GameObject>();
             hpBarList = new List<GameObject>();
 
-            lockOnColor = Color.red;
-            unlockOnColor = Color.green;
+            lockOnColor = new Color[] { Color.green, Color.red, Color.yellow, Color.blue };
         }
 
         private void Start()
@@ -95,16 +94,14 @@ namespace MissileFighter.UI.BattleScreen
                 float size = 1 - Mathf.Clamp((Vector3.Distance(lockOnSystem.transform.position, visibleTargetStateList[i].Target.transform.position) - 500f) / 2000, 0.0f, 0.5f);
                 markerList[i].transform.localScale = new Vector3(size, size, 1);
 
-                // マーカーの色を設定
-                if (visibleTargetStateList[i].IsLockOn)
+                // ロックオン前の時だけ回転
+                if (visibleTargetStateList[i].LockOnRank == 0)
                 {
-                    markerList[i].GetComponent<Image>().color = lockOnColor;    // ロックオン完了
-                }
-                else
-                {
-                    markerList[i].GetComponent<Image>().color = unlockOnColor;  // 画面には写っている
                     markerList[i].transform.Rotate(new Vector3(0, 0, 90) * Time.deltaTime); // マーカーの回転
                 }
+
+                // マーカーの色をロックオン段階の色に設定
+                markerList[i].GetComponent<Image>().color = lockOnColor[visibleTargetStateList[i].LockOnRank];
 
                 hpBarList[i].GetComponentInChildren<Slider>().value = (float)visibleTargetStateList[i].Target.Hp / visibleTargetStateList[i].Target.MaxHp;
             }

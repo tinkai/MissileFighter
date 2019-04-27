@@ -26,14 +26,10 @@ namespace MissileFighter.Fighters.Systems
         }
 
         // 初回ロックオン時に音を鳴らすメソッド
-        protected override void PlayFirstLockOnAudio(LockOnTargetState targetState)
+        protected override void PlayLockOnAudio()
         {
-            // ロックオン開始 の場合、ロック音を鳴らす
-            if (targetState.IsLockOn == false)
-            {
-                AudioSource audio = GetComponent<AudioSource>();
-                audio.PlayOneShot(audio.clip);
-            }
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.PlayOneShot(audio.clip);
         }
     }
 }

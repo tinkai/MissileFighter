@@ -12,8 +12,8 @@ namespace MissileFighter.Fighters.Systems
         // ロックオン開始してからの時間
         public float LockOnElapsedTime = 0;
 
-        // ロックオンしているか
-        public bool IsLockOn;
+        // ロックオン状態
+        public int LockOnRank;
 
         //***********************************************************
 
