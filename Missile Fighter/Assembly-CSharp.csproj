@@ -60,7 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Missile Fighter\Scripts\Common\ApplicationManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Common\CanvasManager.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Common\TimeSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Bodys\Boosters.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Bodys\MissilePods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Constants\FighterDirectionConstant.cs" />

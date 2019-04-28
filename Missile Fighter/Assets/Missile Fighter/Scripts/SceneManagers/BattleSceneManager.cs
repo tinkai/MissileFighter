@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using MissileFighter.Common;
 using MissileFighter.Settings;
 using MissileFighter.GlobalDatas;
 using MissileFighter.Fighters.Systems;
@@ -31,6 +32,7 @@ namespace MissileFighter.SceneManagers
 
         private void Start()
         {
+            FindObjectOfType<CanvasManager>().ActiveOnlyCanvas("Battle Canvas");
             StartCoroutine(Countdown());
         }
 
