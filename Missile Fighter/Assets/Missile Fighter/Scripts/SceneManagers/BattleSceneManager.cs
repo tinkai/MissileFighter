@@ -7,7 +7,7 @@ using MissileFighter.Common;
 using MissileFighter.Settings;
 using MissileFighter.GlobalDatas;
 using MissileFighter.Fighters.Systems;
-using MissileFighter.Fighters.Controllers;
+using MissileFighter.Fighters.Player;
 
 namespace MissileFighter.SceneManagers
 {
@@ -24,14 +24,14 @@ namespace MissileFighter.SceneManagers
 
         private void Awake()
         {
-            // ゲーム設定を反映
-            GameSetting.ReflectSetting();
-
             countdownAudio = GetComponent<AudioSource>();
         }
 
         private void Start()
         {
+            // ゲーム設定を反映
+            GameSetting.ReflectSetting();
+
             FindObjectOfType<CanvasManager>().ActiveOnlyCanvas("Battle Canvas");
             StartCoroutine(Countdown());
         }

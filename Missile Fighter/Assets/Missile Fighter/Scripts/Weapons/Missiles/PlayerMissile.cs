@@ -22,6 +22,9 @@ namespace MissileFighter.Weapons.Missiles
                     damagePower = 2;
                     GetComponent<TrailRenderer>().startColor = Color.yellow;
                     break;
+                case 1:
+                    GetComponent<TrailRenderer>().startColor = Color.red;
+                    break;
             }
         }
     }

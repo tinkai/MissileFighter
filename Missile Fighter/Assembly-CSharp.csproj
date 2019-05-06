@@ -67,10 +67,11 @@
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Bodys\MissilePods.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Constants\FighterDirectionConstant.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Constants\FighterStatementConstant.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerCameraChanger.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerCameraMover.cs" />
-    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Fighter.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Player\PlayerCameraChanger.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Player\PlayerCameraMover.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Player\PlayerController.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Player\PlayerFighterCreator.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\EnemyLockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\LockOnSystem.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Fighters\Systems\LockOnTargetState.cs" />
@@ -92,12 +93,12 @@
     <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreScreen\ScoreResult.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationContents.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationList.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Units\Player.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\Wave.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Waves\WaveManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Weapons\Missiles\Missile.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Weapons\Missiles\PlayerMissile.cs" />
-    <Compile Include="Assets\Units\Enemy.cs" />
-    <Compile Include="Assets\Units\Player.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/shinkaikouki/Unity/MissileFighter/Missile Fighter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MissileFighter.Fighters.Systems;
-using MissileFighter.Fighters.Controllers;
+using MissileFighter.Fighters.Player;
 using MissileFighter.Weapons.Missiles;
 
 namespace MissileFighter.UI.BattleScreen
@@ -40,7 +40,7 @@ namespace MissileFighter.UI.BattleScreen
         private void Start()
         {
             lockOnSystem = GameObject.FindWithTag("Player").GetComponentInChildren<LockOnSystem>();
-            cameraChanger = GameObject.FindWithTag("Player").GetComponent<PlayerCameraChanger>();
+            cameraChanger = GameObject.FindWithTag("Player").GetComponentInParent<PlayerCameraChanger>();
         }
 
         private void Update()
