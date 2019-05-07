@@ -17,11 +17,7 @@ namespace MissileFighter.Settings.Stages
         }
 
         // 現在設定されているステージ情報
-        private StageInformation stageInfo;
-        public StageInformation StageInfo
-        {
-            get { return stageInfo; }
-        }
+        private StageInformation currentStageInfo;
 
         //*********************************************************
 
@@ -31,21 +27,21 @@ namespace MissileFighter.Settings.Stages
             if (PlayerPrefs.HasKey(saveKey))
             {
                 string json = PlayerPrefs.GetString(saveKey);
-                stageInfo = JsonUtility.FromJson<StageInformation>(json);
+                currentStageInfo = JsonUtility.FromJson<StageInformation>(json);
             }
             else
             {
-                stageInfo = stageList[0];
+                currentStageInfo = stageList[0];
             }
         }
 
         // 現在の設定されている情報をjsonに保存
         public void Save(StageInformation info)
         {
-            stageInfo = info;
+            currentStageInfo = info;
 
             // jsonに変換して、保存
-            string json = JsonUtility.ToJson(stageInfo);
+            string json = JsonUtility.ToJson(currentStageInfo);
             PlayerPrefs.SetString(saveKey, json);
         }
 
@@ -53,9 +49,9 @@ namespace MissileFighter.Settings.Stages
         public void ReflectSetting()
         {
             // ゲーム設定の背景や反射を反映
-            RenderSettings.skybox = stageInfo.SkyboxMaterial;
+            RenderSettings.skybox = currentStageInfo.SkyboxMaterial;
             DynamicGI.UpdateEnvironment();
-            RenderSettings.reflectionIntensity = stageInfo.ReflectionIntensity;
+            RenderSettings.reflectionIntensity = currentStageInfo.ReflectionIntensity;
         }
     }
 }

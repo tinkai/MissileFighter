@@ -83,6 +83,8 @@
     <Compile Include="Assets\Missile Fighter\Scripts\SceneManagers\TitleSceneManager.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Settings\GameSetting.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Settings\GameSettingEditer.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Settings\Player Fighter\PlayerFighterInformation.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\Settings\Player Fighter\PlayerFighterSetting.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Settings\Stages\StageInformation.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Settings\Stages\StageSetting.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\BattleScreen\HpBar.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Assets\Missile Fighter\Scripts\UI\BattleScreen\UiWaves.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreScreen\ScoreRanking.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\ScoreScreen\ScoreResult.cs" />
+    <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\FighterInformationContents.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationContents.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\UI\TitleScreen\StageInformationList.cs" />
     <Compile Include="Assets\Missile Fighter\Scripts\Units\Enemy.cs" />

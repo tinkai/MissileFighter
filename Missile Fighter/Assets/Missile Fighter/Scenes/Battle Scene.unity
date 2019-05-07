@@ -1573,8 +1573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c17cd87cc9534fee9ecf24d51ec619e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1328508891384454492, guid: e869bf8035c654074a9faa1cde489f18,
-    type: 3}
 --- !u!1 &852953225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,7 +2091,7 @@ GameObject:
   - component: {fileID: 1058545413}
   - component: {fileID: 1058545415}
   m_Layer: 0
-  m_Name: Systems
+  m_Name: Common Systems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

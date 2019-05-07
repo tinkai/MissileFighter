@@ -9,9 +9,6 @@ namespace MissileFighter.UI.TitleScreen
 {
     public class StageInformationContents : MonoBehaviour
     {
-        // 設定されているステージ
-        private StageInformation stageInfo;
-
         // ステージ名
         [SerializeField] private Text stageNameText;
 
@@ -23,7 +20,6 @@ namespace MissileFighter.UI.TitleScreen
         // 名前と画像を反映
         public void ReflectStageInfo(StageInformation info)
         {
-            stageInfo = info;
             stageNameText.text = info.StageName;
             stageImage.sprite = info.SkyboxSprite;
 
@@ -31,7 +27,7 @@ namespace MissileFighter.UI.TitleScreen
             Button button = GetComponent<Button>();
             GameSettingEditer editor = FindObjectOfType<GameSettingEditer>();
             // 引数アリを設定する場合、ラムダ式にする必要がある
-            button.onClick.AddListener(() => editor.OnClickStage(stageInfo));
+            button.onClick.AddListener(() => editor.OnClickStage(info));
         }
     }
 }
